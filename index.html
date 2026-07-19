@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СР ДПС · Методичка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Unbounded:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DPS Method" />
+    <link rel="manifest" href="site.webmanifest" />
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <!-- ===== БОКОВАЯ ПАНЕЛЬ ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+            <div class="sidebar__logo">
+                <span class="sidebar__logo-icon">🚔</span>
+                <span class="sidebar__logo-text">СР ДПС</span>
+            </div>
+            <span class="sidebar__badge">Методичка</span>
+        </div>
+
+        <nav class="sidebar__nav">
+            <ul class="sidebar__menu">
+                <li><a href="#razminirovanie" class="sidebar__link active">
+                    <span class="sidebar__icon">💣</span> Разминирование
+                </a></li>
+                <li><a href="#rastyazhka" class="sidebar__link">
+                    <span class="sidebar__icon">🪢</span> Растяжка
+                </a></li>
+                <li><a href="#first-aid" class="sidebar__link">
+                    <span class="sidebar__icon">🚑</span> Первая помощь
+                </a></li>
+                <li><a href="#shturm" class="sidebar__link">
+                    <span class="sidebar__icon">🔫</span> Штурм
+                </a></li>
+                <li><a href="#peregovory" class="sidebar__link">
+                    <span class="sidebar__icon">🤝</span> Переговоры
+                </a></li>
+                <li><a href="#theory" class="sidebar__link">
+                    <span class="sidebar__icon">📚</span> Теория
+                </a></li>
+                <li><a href="#dtp" class="sidebar__link">
+                    <span class="sidebar__icon">🚗</span> ДТП
+                </a></li>
+                <li><a href="#zaderzhanie" class="sidebar__link">
+                    <span class="sidebar__icon">⛓️</span> Задержание
+                </a></li>
+                <li><a href="#subordinatsiya" class="sidebar__link">
+                    <span class="sidebar__icon">🎖️</span> Субординация
+                </a></li>
+                <li><a href="primery.html" class="sidebar__link">
+                    <span class="sidebar__icon">🔢</span> Примеры
+                <li><a href="#sostav" class="sidebar__link">
+                    <span class="sidebar__icon">📋</span> Состав
+                </a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar__footer">
+            <button class="theme-toggle" id="themeToggle">
+                <span class="theme-toggle__icon">☀️</span>
+            </button>
+            <span class="sidebar__version">v2.0</span>
+        </div>
+    </aside>
+
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+    <main class="main-content">
+
+        <!-- ===== ТОПБАР ===== -->
+        <header class="topbar">
+            <button class="topbar__menu-btn" id="sidebarToggle">☰</button>
+            <div class="topbar__brand">
+                <span class="topbar__brand-icon">🚔</span>
+                <span class="topbar__brand-text">СР ДПС · <span>Методичка</span></span>
+            </div>
+            <div class="topbar__info">
+                <span class="topbar__user">👤 Пользователь</span>
+            </div>
+        </header>
+
+        <!-- ===== СТРАНИЦА ===== -->
+        <div class="page">
+
+            <!-- ========================================================= -->
+            <!-- ===== РАЗМИНИРОВАНИЕ ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="razminirovanie">
+                <div class="section__header">
+                    <h1 class="section__title">💣 Разминирование</h1>
+                    <p class="section__subtitle">Типы взрывных устройств, тактика и полный порядок действий</p>
+                    <div class="section__divider"></div>
+                </div>
+
+                <h2 class="section__heading">Типы взрывных устройств</h2>
+                <div class="card-grid">
+                    <div class="card card--danger">
+                        <div class="card__icon">⚡</div>
+                        <h3 class="card__title">Самодельное взрывное устройство (СВУ)</h3>
+                        <p class="card__desc">Самодельное взрывное устройство</p>
+                        <ul class="card__list">
+                            <li>Механические</li>
+                            <li>Дистанционные</li>
+                            <li>С таймером</li>
+                        </ul>
+                    </div>
+                    <div class="card card--warning">
+                        <div class="card__icon">🪢</div>
+                        <h3 class="card__title">Растяжки</h3>
+                        <p class="card__desc">Натяжное взрывное устройство</p>
+                        <ul class="card__list">
+                            <li>На основе гранат</li>
+                            <li>Только /do отыгровка</li>
+                            <li>Требует максимальной осторожности</li>
+                        </ul>
+                    </div>
+                    <div class="card card--primary">
+                        <div class="card__icon">📦</div>
+                        <h3 class="card__title">C4</h3>
+                        <p class="card__desc">Промышленное взрывное устройство</p>
+                        <ul class="card__list">
+                            <li>С таймером</li>
+                            <li>Чуть лучше СВУ по сборке</li>
+                            <li>Требует специальной подготовки</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert--info">
+                    <div class="alert__icon">💡</div>
+                    <div class="alert__content">
+                        <strong>Примечание:</strong>
+                        <p>Если говорить по простому, то С4 и СВУ с таймером это одно и тоже, просто С4 чуть лучше в плане сборки.</p>
+                    </div>
+                </div>
+
+                <h2 class="section__heading">Разминирование делится на 2 подтипа</h2>
+                <div class="card-grid card-grid--2">
+                    <div class="card card--primary">
+                        <div class="card__icon">🎭</div>
+                        <h3 class="card__title">/do</h3>
+                        <p class="card__desc">При взаимодействии с игроком (крим, админ или ФИБ)</p>
+                    </div>
+                    <div class="card card--success">
+                        <div class="card__icon">🎯</div>
+                        <h3 class="card__title">/try</h3>
+                        <p class="card__desc">При одиночной отыгровке</p>
+                    </div>
+                </div>
+
+                <div class="alert alert--danger alert--pulse">
+                    <div class="alert__icon">⏱️</div>
+                    <div class="alert__content">
+                        <strong>Таймер:</strong>
+                        <p>• Если таймер отыгрался через /try, то время ты НЕ СПРАШИВАЕШЬ. Таймер есть и всё на этом.</p>
+                        <p>• Если таймер отыграли в /do и дали конкретное время, значит этого времени ты и придерживаешься, <strong>обезвредить сначала таймер НЕЛЬЗЯ!</strong></p>
+                    </div>
+                </div>
+
+                <div class="alert alert--danger alert--pulse" style="border-left-color: #ef4444;">
+                    <div class="alert__icon">⚠️</div>
+                    <div class="alert__content">
+                        <strong>ВАЖНО! ВАЖНО! ВАЖНО! ВАЖНО! ВАЖНО!</strong>
+                        <p>Пелена-12 и титановый кейс весят достаточно много и одному физически их не унести, поэтому их перемещением занимаются <strong>минимум 2 оперативника</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- СВУ через /try ПОЛНОСТЬЮ -->
+                <div class="method-block">
+                    <h3 class="method-block__title">СВУ через /try</h3>
+                    <p class="method-block__note">(отыгровщика нет)</p>
+                    
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__badge">/try</span>
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>/me берёт набор сапёра, ДРП, ЗКС из машины, Пелену-12 и кейс для СВУ
+/me одевает ЗКС.
+/me включает ДРП и смотрит на лампочку
+/try сморит на прибор, лампочка красная | Удачно
+/try сморит на прибор, лампочка красная | Удачно
+/try сморит на прибор, лампочка красная | Недачно
+/try сморит на прибор, лампочка желтая | Удачно ((т.е. СВУ уже близко, около 50 метров))
+/try сморит на прибор, лампочка желтая | Удачно
+/try сморит на прибор, лампочка желтая | Неудачно
+/try сморит на прибор, лампочка зеленая | Удачно ((т.е. СВУ в зрительной достигаемости, метров 5))
+/me выключает ДРП и убирает
+/me достаёт Пелену-12 и устанавливает его на землю не забыв включить
+/me достаёт из разгрузки индикаторную отвёртку
+/me смотрит на СВУ.
+/try смотрит на крышку, на крышке 2 болта | Неудачно
+/try смотрит на крышку, на крышке 3 болта | Удачно
+/me с помощью индикаторной отвертки откручивает болты
+/me приподнимая крышку смотрит под неё
+/try что-то находится на задней стороне крышки | Удачно
+/try леска на задней стороне крышки | Удачно
+/try леска ведет к взрывателю | Удачно
+/me берёт с разгрузки охотничий нож и перерезает леску, убирает крышку СВУ
+/me смотрит в СВУ
+/try в СВУ 2 провода | Неудачно
+/try в СВУ 3 провода | Удачно
+/me достаёт мультиметр, выставляет значение 200 ватт постоянного тока
+/me чёрный щуп ставит на метал покрытие СВУ и прозваниет красным щупом первый провод
+/try первый провод имеет напряжение | Удачно
+/try первый провод имеет напряжение 24.3? | Удачно
+/me переставляет красный щуп на второй провод
+/try второй провод имеет напряжение | Неудачно
+/me переставляет красный щуп на третий провод
+/try третий провод имеет напряжение | Удачно
+/try третий провод имеет напряжение -24.3 | Удачно
+/me убирает красный и чёрный щуп и выключает мультиметр
+/me достаёт из разгрузки бокорезы и перекусывает провода в порядке 1 - 3 - 2 ((+, -, 0, если был таймер, то сначала 0))
+/me снимает с крепления бронежилета титановый кейс, затем открывает его и ставит возле СВУ
+/me вынимает из устройства тротиловую шашку, отделяет от неё шашку взрывателя, а от шашки взрывателя капсюль
+/me укладывает в бронированный кейс, после чего закрываем его, затем цепляет на лямки бронежилета кейс
+/me выключает Пелену-12 и убирает. Выключает мультиметр и так же убирает его</code></pre>
+                    </div>
+                </div>
+
+                <!-- СВУ через /do ПОЛНОСТЬЮ -->
+                <div class="method-block">
+                    <h3 class="method-block__title">СВУ через /do</h3>
+                    <p class="method-block__note">(с отыгровщиком)</p>
+                    
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__badge">/do</span>
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>/me берёт набор сапёра, ЗКС из машины, Пелену-12 и кейс для СВУ
+/me одевает ЗКС.
+/me включает ДРП и смотрит на лампочку
+/do Какая лампочка на приборе?
+((отыгровщик)) /do Красная.
+/do Какая лампочка на приборе?
+((отыгровщик)) /do Желтая. ((т.е. СВУ уже близко, около 50 метров))
+/do Какая лампочка на приборе?
+((отыгровщик)) /do Желтая.
+/do Какая лампочка на приборе?
+((отыгровщик)) /do Зелёная. ((т.е. СВУ в зрительной достигаемости, метров 5))
+/me выключает ДРП и убирает
+/me достаёт из набора сапёра Пелену-12 и устанавливает его на землю не забыв включить
+/me достаём из разгрузки индикаторную отвёртку
+/me смотрит на СВУ.
+/do Сколько болтов на крышке?
+((отыгровщик)) /do 4 болта.
+/me с помощью индикаторной отвертки откручивает болты
+/me приподнимая крышку смотрит под неё
+/do Что-то находится на задней стороне крышки?
+((отыгровщик)) /do Леска на задней стороне крышки.
+/do Леска ведет к взрывателю?
+((отыгровщик)) /do Да.
+/me берёт с разгрузки охотничий нож и перерезает леску, убирает крышку СВУ
+/me смотрит в СВУ
+/do Сколько проводов в СВУ?
+((отыгровщик)) /do 3 провода.
+/me достаёт мультиметр, выставляет значение 200 ватт постоянного тока
+/me чёрный щуп ставит на метал покрытие СВУ и прозваниет красным щупом все провода
+/do Какое напряжение первого провода показал мультиметр?
+((отыгровщик)) /do 23,6.
+/me переставляет красный щуп на второй провод
+/do Какое напряжение второго провода показал мультиметр?
+((отыгровщик)) /do 0.
+/me переставляет красный щуп на третий провод
+/do Какое напряжение третьего провода показал мультиметр?
+((отыгровщик)) /do -23,6.
+/me убирает красный и чёрный щуп и выключает мультиметр
+/me достаёт из разгрузки бокорезы и перекусывает провода в порядке 1 - 3 - 2 ((+, -, 0, если был таймер, то сначала 0))
+/me снимает с крепления бронежилета титановый кейс, затем открывает его и ставит возле СВУ
+/me вынимает из устройства тротиловую шашку, отделяет от неё шашку взрывателя, а от шашки взрывателя капсюль
+/me укладывает в бронированный кейс, после чего закрываем его, затем цепляет на лямки бронежилета кейс
+/me выключает Пелену-12 и убирает. Выключает мультиметр и так же убирает его</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== РАСТЯЖКА ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="rastyazhka">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">🪢 Растяжка</h1>
+                        <p class="section__subtitle">Обезвреживание натяжного взрывного устройства</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <div class="alert alert--warning">
+                        <div class="alert__icon">📌</div>
+                        <div class="alert__content">
+                            <strong>Примечание:</strong>
+                            <p>Растяжка не делится на /do и /try, там только <strong>/do</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__badge">/do</span>
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>/me обхватывает рукой корпус гранаты, одновременно просовывает палец в кольцо
+/me сжимает гранату рукой, наклоняя ее, разводит усики шплинта, удерживающий чеку
+/do Чека упала.
+/me достает бокорезы с разгрузки, перекусывает проволоку
+/me поднимает чеку, вставляет в запал и вешает на разгрузку</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== ПЕРВАЯ ПОМОЩЬ ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="first-aid">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">🚑 Первая помощь</h1>
+                        <p class="section__subtitle">Полный порядок оказания первой помощи при различных состояниях</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <h2 class="section__heading">Различаются три вида первой помощи</h2>
+                    <div class="card-grid card-grid--3">
+                        <div class="card card--success">
+                            <div class="card__icon">🩹</div>
+                            <h3 class="card__title">Первая помощь</h3>
+                            <p class="card__desc">Совокупность простых, целесообразных мер по охране здоровья и жизни пострадавшего. Оказывается любым человеком.</p>
+                            <span class="card__badge">Любой человек</span>
+                        </div>
+                        <div class="card card--primary">
+                            <div class="card__icon">💉</div>
+                            <h3 class="card__title">Первая доврачебная помощь</h3>
+                            <p class="card__desc">Комплекс мероприятий, выполняемых лицами со специальной подготовкой (фельдшера, медсестры).</p>
+                            <span class="card__badge">Фельдшер/Медсестра</span>
+                        </div>
+                        <div class="card card--danger">
+                            <div class="card__icon">🏥</div>
+                            <h3 class="card__title">Первая медицинская помощь</h3>
+                            <p class="card__desc">Специализированная скорая медицинская помощь врачами-специалистами.</p>
+                            <span class="card__badge">Врачи-специалисты</span>
+                        </div>
+                    </div>
+
+                    <!-- ПДП пулевое -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">ПДП при пулевом ранении</h3>
+                        <div class="code-block">
+                            <div class="code-block__header">
+                                <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre class="code-block__content"><code>/me достает телефон,вызывает скорую медицинскую помощь.
+/me запрокидывает голову человека назад,чуть ее поворачивая ((если без сознания))
+/me снимает с разгрузки аптечку,открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/do Есть ли кровотечение?
+/do Какое кровотечение и где?
+/do Есть ли противопоказания на обезболивающие?
+/me достаёт шприц с обезболивающим из аптечки
+/me вкалывает обезболивающее человеку ((крест накрест. Ранение на правой ноге - обезбол в левую руку и наоборот))
+/me достает зеленку из аптечки и обрабатывает ею края раны
+/me достает давящую повязку из аптечки и накладывает ее на пулевое отверстие
+/do Тампонад наложен.
+/me разрывает одежду в зоне ранения</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- ПДП закрытый перелом -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">ПДП при закрытом переломе</h3>
+                        <div class="code-block">
+                            <div class="code-block__header">
+                                <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre class="code-block__content"><code>/me кладет человека на пол
+/do Человек в горизонтальном положении.
+/me достает телефон,вызывает скорую помощь
+/me снимает с разгрузки аптечку,открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/me достает из аптечки медицинскую шину, накладывая ее на место перелома
+/me берет бинты, и туго фиксирует ими шину
+/do Шина зафиксирована.</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- ПДП открытый перелом -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">ПДП при открытом переломе</h3>
+                        <div class="code-block">
+                            <div class="code-block__header">
+                                <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre class="code-block__content"><code>/me кладет человека на пол
+/do Человек в горизонтальном положении.
+/me достает телефон,вызывает скорую помощь
+/me снимает с разгрузки аптечку,открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/me достает нож после чего разрезает одежду около перелома
+/do Одежда отсутствует.
+/me достает из аптечки медицинскую шину, накладывая ее на место перелома
+/me берет бинты, и туго фиксирует ими шину
+/do Шина зафиксирована.</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- ПДП капиллярное -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">ПДП при капиллярном кровотечении</h3>
+                        <div class="code-block">
+                            <div class="code-block__header">
+                                <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre class="code-block__content"><code>/do Есть ли кровотечение?
+/do Какое кровотечение и где?
+/me достает телефон, вызывает скорую помощь
+/me снимает с разгрузки аптечку, открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/me достает из аптечки антисептическую повязку
+/do Антисептическая повязка в руках.
+/me обматывает антисептическую повязку на поврежденный участок</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- ПДП венозное -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">ПДП при венозном кровотечении</h3>
+                        <div class="code-block">
+                            <div class="code-block__header">
+                                <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre class="code-block__content"><code>/do Есть ли кровотечение?
+/do Какое кровотечение и где?
+/me достает телефон,вызывает скорую помощь
+/me снимает с разгрузки аптечки,открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/me протягивает руку в аптечку после чего берет от туда марлю
+/me накладывает марлю на рану
+/me достает из аптечки бинт и вату после чего кладет вату на марлю и туго бинтует
+/do Давящая повязка наложена.</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- ПДП артериальное -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">ПДП при артериальном кровотечении</h3>
+                        <div class="code-block">
+                            <div class="code-block__header">
+                                <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre class="code-block__content"><code>/do Есть ли кровотечение?
+/do Какого вида кровотечение и где?
+/me берёт телефон и вызывает СМП, затем достаёт аптечки, открывает и кладёт на пол
+/me пережимает артерию кулаком в месте ранения, параллельно доставая бинты со жгутом
+/me перевязывает место наложения жгута бинтом и накладывает жгут на место выше ранения, делая первые два тура тугими
+/me достаёт бумажку и ручку, затем записывает время наложения жгута</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== ШТУРМ ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="shturm">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">🔫 Штурм</h1>
+                        <p class="section__subtitle">Основные штурмовые группы, виды и тактики штурма</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <h2 class="section__heading">Основные штурмовые группы</h2>
+                    <div class="card-grid card-grid--4">
+                        <div class="card">
+                            <div class="card__icon">⚔️</div>
+                            <h3 class="card__title">Штурмовая</h3>
+                            <p class="card__desc">Зачистка, работа в двойках/тройках</p>
+                        </div>
+                        <div class="card">
+                            <div class="card__icon">🛡️</div>
+                            <h3 class="card__title">Закрепление</h3>
+                            <p class="card__desc">Контроль позиций и точек</p>
+                        </div>
+                        <div class="card">
+                            <div class="card__icon">🔄</div>
+                            <h3 class="card__title">Резерв</h3>
+                            <p class="card__desc">Усиление при необходимости</p>
+                        </div>
+                        <div class="card">
+                            <div class="card__icon">🚁</div>
+                            <h3 class="card__title">Эвакуация</h3>
+                            <p class="card__desc">Вывод личного состава</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section__heading">Виды штурма</h2>
+                    <div class="card-grid card-grid--2">
+                        <div class="card card--primary">
+                            <div class="card__icon">👮</div>
+                            <h3 class="card__title">Полицейский</h3>
+                            <p class="card__desc">Минимизация потерь, использование светошумовых/газовых гранат, сохранение жизни заложников</p>
+                        </div>
+                        <div class="card card--danger">
+                            <div class="card__icon">💀</div>
+                            <h3 class="card__title">Армейский</h3>
+                            <p class="card__desc">Полное уничтожение противника, использование тяжелого вооружения</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section__heading">Основные тактики штурма зданий</h2>
+                    <div class="card-grid card-grid--4">
+                        <div class="card">
+                            <h3 class="card__title">«Крючок»</h3>
+                            <p class="card__desc">Применяется при вооружении короткоствольным оружием и широких дверях. Сотрудники одновременно становятся на колено, удерживаются за косяк двери, затем входят в помещение, пригнувшись и контролируя свои направления.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card__title">«Крест»</h3>
+                            <p class="card__desc">Применяется когда ширина дверей значения не имеет. Сотрудники входят один за другим по диагонали, практически одновременно зачищая обе мертвые зоны.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card__title">«Угол»</h3>
+                            <p class="card__desc">Уместен когда дверь расположена около стены. Вариант выполнения определяет №1, №2 подстраивается под действия направляющего.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card__title">«Диагональ»</h3>
+                            <p class="card__desc">Похожа на способ «угол», но сотрудники становятся спиной к одной из стен, контролируя всё помещение каждый в своём секторе. Применяется когда зачищаемое помещение последнее.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== ПЕРЕГОВОРЫ ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="peregovory">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">🤝 Переговоры</h1>
+                        <p class="section__subtitle">Цели, обязательные действия и запреты</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <h2 class="section__heading">Цели переговоров</h2>
+                    <ul class="styled-list">
+                        <li>Сохранение жизни заложников</li>
+                        <li>Сбор информации о преступниках и их требованиях</li>
+                        <li>Выигрыш времени для подготовки специальных служб</li>
+                        <li>Заключение соглашений, удовлетворяющих интересы властей и преступников</li>
+                    </ul>
+
+                    <h2 class="section__heading">Обязательные действия во время переговоров</h2>
+                    <ul class="styled-list">
+                        <li><code>/s</code> Я на переговоры. Оружия у меня нет.</li>
+                        <li>Поднять руки при приближении <code>/anim 12</code></li>
+                        <li>Выслушать требования, задавать уточняющие вопросы</li>
+                        <li>Узнать состояние и количество заложников</li>
+                        <li>Потребовать показать заложников</li>
+                        <li>Стараться вывести сначала женщин, детей, пожилых</li>
+                        <li>При передаче выкупа стараться обменять на заложников</li>
+                        <li>При отказе отдавать заложников после получения выкупа — начинается штурм</li>
+                    </ul>
+
+                    <div class="alert alert--danger">
+                        <div class="alert__icon">⛔</div>
+                        <div class="alert__content">
+                            <strong>Запрещено во время переговоров:</strong>
+                            <ul>
+                                <li>Провоцировать, конфликтовать, повышать тон на преступников</li>
+                                <li>Игнорировать требования похитителей</li>
+                                <li>Рисковать жизнью заложников</li>
+                                <li>Идти за захватчиками, если они предлагают пройти посмотреть на заложника</li>
+                                <li>Нарушать данные обещания (если они были даны)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== ТЕОРИЯ (ПОЛНАЯ) ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="theory">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">📚 Теоретическая база</h1>
+                        <p class="section__subtitle">5 лекций СР ДПС</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <div class="tabs">
+                        <div class="tabs__nav">
+                            <button class="tabs__btn active" data-tab="tab1">Основы права</button>
+                            <button class="tabs__btn" data-tab="tab2">Уголовное право</button>
+                            <button class="tabs__btn" data-tab="tab3">Процессуальные действия</button>
+                            <button class="tabs__btn" data-tab="tab4">Разминирование</button>
+                            <button class="tabs__btn" data-tab="tab5">Первая помощь</button>
+                        </div>
+                        <div class="tabs__content active" id="tab1">
+                            <h3>Основы государства и права</h3>
+                            <h4>Ветви власти Российской Федерации</h4>
+                            <ul>
+                                <li><strong>Законодательная власть</strong> — Федеральное Собрание.</li>
+                                <li><strong>Исполнительная власть</strong> — Правительство, федеральные органы (в т.ч. ФСБ).</li>
+                                <li><strong>Судебная власть</strong> — суды всех уровней.</li>
+                            </ul>
+                            <div class="highlight">
+                                <strong>ФСБ</strong> относится к органам исполнительной власти в сфере безопасности.<br>
+                                <strong>Адвокатура</strong> не относится ни к одной из ветвей власти и является независимым профессиональным сообществом.
+                            </div>
+                            <h4>Основные понятия</h4>
+                            <ul>
+                                <li><strong>Право</strong> — система общеобязательных норм, охраняемых государством.</li>
+                                <li><strong>Нормативный правовой акт</strong> — официальный документ, принятый уполномоченным государственным органом.</li>
+                                <li><strong>Государственное принуждение</strong> — меры воздействия государства на нарушителей закона.</li>
+                            </ul>
+                            <h4>Формы принуждения</h4>
+                            <p>предупреждение · пресечение · правовосстановление · юридическая ответственность</p>
+                            <h4>Презумпция невиновности</h4>
+                            <div class="highlight">
+                                Лицо считается невиновным, пока его вина не будет доказана и установлена вступившим в законную силу приговором суда.
+                            </div>
+                            <ul>
+                                <li>обвиняемый не обязан доказывать свою невиновность;</li>
+                                <li>все сомнения толкуются в пользу обвиняемого;</li>
+                                <li>обвинительный приговор не может основываться на предположениях.</li>
+                            </ul>
+                            <h4>Аксиомы уголовного права</h4>
+                            <ul>
+                                <li>Все равны перед законом.</li>
+                                <li>Нельзя дважды судить за одно преступление.</li>
+                                <li>Без вины нет ответственности.</li>
+                                <li>Незнание закона не освобождает от ответственности.</li>
+                            </ul>
+                        </div>
+                        <div class="tabs__content" id="tab2">
+                            <h3>Основы уголовного права</h3>
+                            <h4>Преступление</h4>
+                            <div class="highlight">
+                                <strong>Преступление</strong> — виновное, общественно опасное деяние, запрещённое уголовным законом под угрозой наказания.
+                            </div>
+                            <ul>
+                                <li><strong>Уголовная ответственность</strong> — правовое последствие совершения преступления.</li>
+                                <li><strong>Наказание</strong> — мера государственного принуждения, назначаемая судом.</li>
+                            </ul>
+                            <h4>Состав преступления</h4>
+                            <ul>
+                                <li><strong>Объект</strong> — то, на что направлено посягательство.</li>
+                                <li><strong>Субъект</strong> — лицо, совершившее преступление.</li>
+                                <li><strong>Объективная сторона</strong> — деяние, последствия, причинная связь, место, время, способ.</li>
+                                <li><strong>Субъективная сторона</strong> — вина, мотив, цель.</li>
+                            </ul>
+                            <h4>Отдельные виды преступлений</h4>
+                            <ul>
+                                <li><strong>Захват заложника</strong> — удержание лица с целью понуждения к совершению определённых действий.</li>
+                                <li><strong>Похищение человека</strong> — незаконный захват и удержание лица против его воли.</li>
+                                <li><strong>Акт агрессии против мирного населения</strong> — действия, создающие угрозу жизни и безопасности граждан.</li>
+                            </ul>
+                        </div>
+                        <div class="tabs__content" id="tab3">
+                            <h3>Процессуальные действия и доказательства</h3>
+                            <h4>Процессуальные действия</h4>
+                            <ul>
+                                <li>допрос;</li>
+                                <li>обыск;</li>
+                                <li>выемка;</li>
+                                <li>избрание меры пресечения;</li>
+                                <li>прекращение уголовного дела.</li>
+                            </ul>
+                            <h4>Доказательства</h4>
+                            <ul>
+                                <li><strong>Вещественные</strong> — орудия преступления, следы, предметы, полученные преступным путём.</li>
+                                <li><strong>Невещественные</strong> — информация, программы, физические поля, имущественные права.</li>
+                            </ul>
+                            <h4>Показания</h4>
+                            <ul>
+                                <li>показания подозреваемого;</li>
+                                <li>показания обвиняемого;</li>
+                                <li>показания свидетеля.</li>
+                            </ul>
+                            <h4>Задержание и арест</h4>
+                            <ul>
+                                <li><strong>Задержание</strong> — кратковременное лишение свободы лица, подозреваемого в совершении правонарушения.</li>
+                                <li><strong>Арест</strong> — уголовное наказание в виде содержания лица в условиях строгой изоляции.</li>
+                                <li><strong>Протокол задержания</strong> — документ, фиксирующий основания и обстоятельства.</li>
+                            </ul>
+                            <h4>Общественное место</h4>
+                            <ul>
+                                <li>улицы, парки, торговые центры;</li>
+                                <li>подъезды, остановки, общественный транспорт.</li>
+                            </ul>
+                            <h4>Полиция и оперативные подразделения</h4>
+                            <div class="highlight">
+                                <strong>ОСН «Гром»</strong> — оперативное подразделение полиции, осуществляющее оперативно-разыскную деятельность.
+                            </div>
+                        </div>
+                        <div class="tabs__content" id="tab4">
+                            <h3>Основы разминирования</h3>
+                            <h4>Классификация взрывных устройств</h4>
+                            <ul>
+                                <li><strong>По изготовлению:</strong> промышленные (заводские) и самодельные (СВУ).</li>
+                                <li><strong>По управлению:</strong> механические, электрические, электронные (таймер), радиоуправляемые.</li>
+                            </ul>
+                            <h4>Основные элементы СВУ</h4>
+                            <p>заряд ВВ · средство инициирования · источник питания · система управления</p>
+                            <h4>Этапы разминирования</h4>
+                            <ol>
+                                <li><strong>Обнаружение:</strong> визуальный осмотр, ДРП (дальномерный радиолокационный поиск), Пелена-12 (локатор взрывчатых веществ).</li>
+                                <li><strong>Определение типа:</strong> таймер, способ активации (нажимной, натяжной, дистанционный), наличие антиразгрузочных элементов (ловушек), количество и цвет проводов.</li>
+                                <li><strong>Локализация и изоляция:</strong> Пелена-12 (стационарный глушитель радиосигналов), ЗКС (защитный костюм сапёра), титановый кейс для транспортировки.</li>
+                                <li><strong>Обезвреживание:</strong> осмотр, вскрытие, прозвон проводов мультиметром, перекус в последовательности: нейтраль → плюс → минус, извлечение заряда, отделение капсюля-детонатора, упаковка в кейс.</li>
+                            </ol>
+                            <div class="warning">
+                                <strong>Запрещено:</strong> перерезать все провода одновременно · игнорировать антиразгрузочные элементы · наклоняться над корпусом ВУ · использовать металлические инструменты без изоляции.
+                            </div>
+                            <h4>Ключевые нюансы</h4>
+                            <ul>
+                                <li><strong>Таймер</strong> обезвреживается в последнюю очередь. Перерезание проводов питания таймера может привести к детонации, если таймер подключён к взрывателю через цепь замыкания.</li>
+                                <li><strong>Пелена-12 и титановый кейс</strong> — снаряжение, требующее физической выносливости. Их перемещение осуществляется минимум двумя оперативниками.</li>
+                                <li><strong>Растяжка (натяжное устройство):</strong> обхват корпуса гранаты рукой, палец в кольцо чеки, разведение усиков шплинта, удержание чеки, перекусывание лески, возврат чеки в запал.</li>
+                            </ul>
+                        </div>
+                        <div class="tabs__content" id="tab5">
+                            <h3>Основы первой помощи (ПДП)</h3>
+                            <h4>Уровни оказания помощи</h4>
+                            <ul>
+                                <li><strong>Первая помощь</strong> — простые, жизненно важные меры, выполняемые любым человеком до прибытия врачей.</li>
+                                <li><strong>Первая доврачебная помощь</strong> — выполняется лицами со специальной подготовкой (фельдшер, медсестра). Включает в себя более широкий спектр манипуляций.</li>
+                                <li><strong>Первая медицинская помощь</strong> — специализированная помощь врачами, бригадой скорой помощи.</li>
+                            </ul>
+                            <h4>Порядок действий при обнаружении пострадавшего</h4>
+                            <ol>
+                                <li><strong>Оценка безопасности</strong> — убедиться в отсутствии угрозы для себя и пострадавшего.</li>
+                                <li><strong>Вызов скорой помощи</strong> — сообщить точный адрес, характер происшествия, количество пострадавших.</li>
+                                <li><strong>Оценка состояния</strong> — проверить сознание, дыхание, пульс.</li>
+                                <li><strong>Остановка кровотечения</strong> — первое по времени критическое действие.</li>
+                                <li><strong>Обезболивание</strong> (при наличии препаратов).</li>
+                                <li><strong>Обработка раны и наложение повязки.</strong></li>
+                                <li><strong>Иммобилизация</strong> (при переломах).</li>
+                                <li><strong>Транспортировка</strong> (только при необходимости, если скорая не может прибыть быстро).</li>
+                            </ol>
+                            <h4>Классификация кровотечений и методы остановки</h4>
+                            <ul>
+                                <li><strong>Капиллярное</strong> — кровь сочится каплями. Действия: антисептическая повязка.</li>
+                                <li><strong>Венозное</strong> — тёмно-вишнёвая кровь, вытекает непрерывной струёй. Действия: давящая повязка (марля + вата + тугое бинтование).</li>
+                                <li><strong>Артериальное</strong> — алая кровь, пульсирующая струя. Действия: пальцевое пережатие артерии → наложение жгута выше места ранения с фиксацией времени наложения.</li>
+                            </ul>
+                            <div class="warning">
+                                <strong>Правила наложения жгута:</strong> накладывается только при артериальном кровотечении · выше ранения, максимально близко к нему · первые два тура — максимально тугие · обязательное указание времени наложения · держать не более 1,5–2 часов в тёплое время и 1 час в холодное.
+                            </div>
+                            <h4>Порядок действий при различных ранениях</h4>
+                            <ul>
+                                <li><strong>Пулевое/огнестрельное ранение:</strong> вызов скорой, при отсутствии сознания — запрокинуть голову и повернуть на бок, открыть аптечку, оценить кровотечение, уточнить противопоказания на обезболивающие, ввести обезболивающее (крест-накрест: ранение на правой ноге — укол в левую руку и наоборот), обработать края раны антисептиком, наложить давящую повязку, при необходимости разорвать одежду в зоне ранения.</li>
+                                <li><strong>Закрытый перелом:</strong> уложить пострадавшего на пол, вызвать скорую, наложить медицинскую шину, зафиксировать шину бинтами.</li>
+                                <li><strong>Открытый перелом:</strong> уложить пострадавшего на пол, вызвать скорую, разрезать одежду в области перелома, наложить шину, зафиксировать шину бинтами.</li>
+                            </ul>
+                            <h4>Основные принципы ПДП</h4>
+                            <div class="highlight">
+                                <strong>Не навреди</strong> — действия должны улучшать состояние, а не ухудшать.<br>
+                                <strong>Приоритеты:</strong> кровотечение > дыхание > переломы.<br>
+                                <strong>Иммобилизация</strong> (обездвиживание) обязательна при любых подозрениях на перелом позвоночника или крупных костей.<br>
+                                <strong>Обезболивание</strong> — вводится только если пострадавший в сознании и нет аллергии.<br>
+                                <strong>Транспортировка</strong> — только в крайнем случае, с учётом характера травм.
+                            </div>
+                            <h4>Дополнительные нюансы для оперативных подразделений</h4>
+                            <ul>
+                                <li>Аптечка всегда находится в доступном месте (разгрузка, авто).</li>
+                                <li>Иметь при себе: жгут, бинты, марлю, шины, антисептик, обезболивающее (при наличии допуска).</li>
+                                <li>При массовом поражении — сортировка по тяжести состояния.</li>
+                                <li>При химическом или радиационном поражении — использование индивидуальных средств защиты (противогаз, ОЗК).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== ДТП (ПОЛНОСТЬЮ) ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="dtp">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">🚗 Оформление ДТП</h1>
+                        <p class="section__subtitle">Полный порядок действий при оформлении дорожно-транспортного происшествия</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <h2 class="section__heading">Первая часть</h2>
+                    <div class="alert alert--info">
+                        <div class="alert__icon">📋</div>
+                        <div class="alert__content">
+                            <p>В случае если требуется:</p>
+                            <ul>
+                                <li>Вызвать скорую помощь</li>
+                                <li>Оказать ПДП</li>
+                                <li>Представиться всем</li>
+                                <li>Ограждения</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>/me открыл багажник авто, после чего достал сумку
+/me из сумки достал документы оформления ДТП, начал записывать своё звание, должность
+
+Вопросы по типу: Какое примерное время.
+
+/me записал время, дату ДТП
+/me записал марку, цвет, номера первого авто
+/me записал марку, цвет, номера второго авто
+
+"Предоставьте ваши документы на основании Главы 3 Статьи 6 Части 1 Пункта 2 (Только ВУ)"
+
+/me взял первое ВУ в руку, переписал данные в документ оформления ДТП
+/me взял первое ВУ в руку, переписал данные в документ оформления ДТП
+
+Вернуть ВУ
+Положить в подсумку (Или куда-то) документ оформления ДТП.</code></pre>
+                    </div>
+
+                    <h2 class="section__heading">Вторая часть</h2>
+                    <p class="section__subtitle" style="margin-bottom: 16px;">Начать зарисовывать схему ДТП</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>/me взял чистый лист, начал зарисовывать схему ДТП
+/me поставил подпис, дату, положил к документу оформления ДТП
+
+/me взял 3 протокол и ручку, начал заполнять
+
+Подошел к первой машине:
+/me переписал цвет, марку, номер авто, затем переписал из первого протокола информацию о водителе
+/me записал показатели спидометра, положения рычага переключения передач
+/me записал повреждения первого ТС
+
+Подошел ко второй машине:
+/me переписал цвет, марку, номер авто, затем переписал из первого протокола информацию о водителе
+/me записал показатели спидометра, положения рычага переключения передач
+/me записал повреждения второго ТС
+/me поставил подпись, дату в документе</code></pre>
+                    </div>
+
+                    <h2 class="section__heading">Третья часть</h2>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>/me достал четвёртый документ, начал заполнять протокол контроля трезвости в отношению первого водителя
+/me закончил вводить нужную информацию, поставил подпись, дату
+
+Подходим к первому водителю:
+"Если согласны пройти сведетельство о стадии алкогольного опьянения ставьте подпись"
+
+После отказа/Подписи:
+/me забрал протокол у водителя, положил его к документам
+/me из разгрузки достал алкотестер с медной трубкой, указал на трубку человеку
+/me включил устройство, откалибровал его, приставил к губам человека напротив
+"Дуйте"
+
+/do Алкотестер показал менее 0.16 промилле?
+
+===Это к двум людям так подойти===
+
+/me отсоеденил устройство от губ человека, зафиксировал показания
+/me записал данные в протокол, поставил подпись, дату</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>Вопрос к двум лицам:
+"Фиксация имееться у кого-то из вас?"
+
+Если ответ да:
+"Смотришь, оформляешь по ПДД и т.д"
+
+Если ответ нет:
+/me из сумки достаю два листка и две ручки, передаю водителям
+
+"Это пояснительные записки, вы (Первый водитель) запишите со своих глаз, а вы (второй водитель) запишите со своих глаз как видели ДТП"
+
+/me взял заполненые записки, начал ознакамливатся
+/do Что написано в записке?
+Слушаешь самую крайнюю версию
+
+Если 2 версии сходятся то указуешь виновника ДТП (Типо если водитель признался что он виноват)
+Выписуешь штрафы
+/me достал документ оформления ДТП, запишу виновника ДТП
+
+Если никто не признался в нарушении:
+"ДТП квалифицируется как спорное. Виновное лицо не установлено из-за отсутствия фиксации и противоречивых пояснений. Материалы будут оформлены без вынесения постановления."
+
+/me открыл документ оформления ДТП и сделал отметку "ДТП спорное, виновное лицо не установлено"
+/me поставил подпись и дату</code></pre>
+                    </div>
+
+                    <h2 class="section__heading">Четвертая часть</h2>
+                    <p class="section__subtitle" style="margin-bottom: 16px;">Уведомить водителей об их дальнейших действиях</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>"Так как ДТП спорное, вы можете разрешить его через страховую компанию или через суд. ГИБДД не выносит постановление и не назначает штраф."
+
+/me передал материалы водителям и сообщил порядок дальнейших действий</code></pre>
+                    </div>
+
+                    <h2 class="section__heading">Финальная часть</h2>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                        </div>
+                        <pre class="code-block__content"><code>/me закрыл бланк оформления ДТП и убрал документы в сумку
+
+Сбор документов в одну папку:
+/me взял пустую папку, подписал как "Авария (Дата, Время)"
+/me собрал все материалы ДТП и приложил их к делу
+
+"Вызовите механика для починки ТС".</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== ЗАДЕРЖАНИЕ ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="zaderzhanie">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">⛓️ Порядок задержания</h1>
+                        <p class="section__subtitle">Алгоритм действий при задержании</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div>
+                            <h2 class="section__heading">Алгоритм</h2>
+                            <ol class="styled-list styled-list--numbered">
+                                <li>"Применяю спец. средства и физ. силу"</li>
+                                <li>Представиться</li>
+                                <li>"Задержаны за..."</li>
+                                <li>Миранда</li>
+                                <li>Повторная Миранда если не ясно</li>
+                                <li>Посадить в авто</li>
+                                <li>Достать с авто</li>
+                                <li>Досмотр</li>
+                                <li>Объявить в розыск</li>
+                                <li>Штраф если надо</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h2 class="section__heading">Заполнение протокола</h2>
+                            <div class="code-block">
+                                <div class="code-block__header">
+                                    <button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre class="code-block__content"><code>/me взял ручку и протокол
+/me начал заполнять протокол
+/me вписал цель задержания
+/me время задержания
+/me причину задержания
+/me мотив задержания
+/me иные обстоятельства
+/me расписался
+/me обозначил свои инициалы
+/me обозначил инициалы задержанного
+
+"Будете расписываться?"
+
+/me вызвал дежурного
+/me передал протокол и задержанного дежурному</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== СУБОРДИНАЦИЯ ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="subordinatsiya">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">🎖️ Субординация</h1>
+                        <p class="section__subtitle">Военная дисциплина и правила обращения</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <div class="card-grid card-grid--2">
+                        <div class="card">
+                            <h3 class="card__title">Содержание субординации</h3>
+                            <p class="card__desc">Субординация — военная дисциплина, система служебных отношений, связанных с иерархией, отношением младших по званию к старшим и наоборот. Например, отношения между младшим сержантом и лейтенантом должны иметь официальный и уважительный характер.</p>
+                            <p class="card__desc" style="margin-top: 12px;">Содержание субординации — следование установленным правилам взаимоотношений между лицами разной иерархической ступени внутри трудового коллектива, организации, учреждения.</p>
+                        </div>
+                        <div class="card card--danger">
+                            <h3 class="card__title">Замена неправильных слов</h3>
+                            <ul class="styled-list">
+                                <li>"Здравствуйте" → <strong>"Здравия желаю"</strong></li>
+                                <li>"Да" → <strong>"Так точно"</strong></li>
+                                <li>"Нет" → <strong>"Никак нет"</strong></li>
+                                <li>"Можно?" → <strong>"Разрешите?"</strong></li>
+                                <li>"Не знаю" → <strong>"Не могу знать"</strong></li>
+                                <li>"Ладно, хорошо" → <strong>"Есть"</strong></li>
+                            </ul>
+                            <div class="alert alert--danger" style="margin-top: 16px; border-left-color: #ef4444;">
+                                <p><strong>Несоблюдение субординации</strong> — это нарушение устава, за которое вы получите наказание.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== СОСТАВ ===== -->
+            <!-- ========================================================= -->
+            <section class="section" id="sostav">
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">📋 Состав СР ДПС</h1>
+                        <p class="section__subtitle">Личный состав подразделения</p>
+                        <div class="section__divider"></div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Личность</th>
+                                    <th>Звание</th>
+                                    <th>Должность</th>
+                                    <th>VK (ник)</th>
+                                    <th>Выговора</th>
+                                    <th>Внутренние</th>
+                                    <th>Часовой пояс</th>
+                                    <th>Активность</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                    <td><span class="table__placeholder">—</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table__note">* Данные заполняются в соответствии с приказом командира подразделения</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <span class="footer__logo">🚔 СР ДПС</span>
+                <p class="footer__desc">Методическое пособие для сотрудников</p>
+            </div>
+            <div class="footer__links">
+                <a href="#razminirovanie">Разминирование</a>
+                <a href="#first-aid">Первая помощь</a>
+                <a href="#shturm">Штурм</a>
+                <a href="#peregovory">Переговоры</a>
+                <a href="#theory">Теория</a>
+                <a href="#dtp">ДТП</a>
+            </div>
+            <div class="footer__copy">
+                <p>© 2026 Amazing Online Roleplay</p>
+                <p>Разработано для СР ДПС</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
