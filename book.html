@@ -213,71 +213,247 @@
                     </div>
                 </div>
             </section>
+
+            <!-- ========================================================= -->
+            <!-- ===== ПЕРВАЯ ПОМОЩЬ (ОБНОВЛЕНО ПО ВОДНИКУ) ===== -->
+            <!-- ========================================================= -->
             <section class="section" id="first-aid">
                 <div class="container">
                     <div class="section__header"><h1 class="section__title">🚑 Первая помощь</h1><p class="section__subtitle">Полный порядок оказания первой помощи при различных состояниях</p><div class="section__divider"></div></div>
-                    <h2 class="section__heading">Различаются три вида первой помощи</h2>
+                    
+                    <h2 class="section__heading">Общие понятия</h2>
                     <div class="card-grid card-grid--3">
                         <div class="card card--success"><div class="card__icon">🩹</div><h3 class="card__title">Первая помощь</h3><p class="card__desc">Совокупность простых, целесообразных мер по охране здоровья и жизни пострадавшего. Оказывается любым человеком.</p><span class="card__badge">Любой человек</span></div>
                         <div class="card card--primary"><div class="card__icon">💉</div><h3 class="card__title">Первая доврачебная помощь</h3><p class="card__desc">Комплекс мероприятий, выполняемых лицами со специальной подготовкой (фельдшера, медсестры).</p><span class="card__badge">Фельдшер/Медсестра</span></div>
                         <div class="card card--danger"><div class="card__icon">🏥</div><h3 class="card__title">Первая медицинская помощь</h3><p class="card__desc">Специализированная скорая медицинская помощь врачами-специалистами.</p><span class="card__badge">Врачи-специалисты</span></div>
                     </div>
-                    <div class="method-block"><h3 class="method-block__title">ПДП при пулевом ранении</h3><div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me достает телефон,вызывает скорую медицинскую помощь.
-/me запрокидывает голову человека назад,чуть ее поворачивая ((если без сознания))
-/me снимает с разгрузки аптечку,открыв ее, ставит на пол
-/do Аптечка открыта на полу.
-/do Есть ли кровотечение?
-/do Какое кровотечение и где?
-/do Есть ли противопоказания на обезболивающие?
-/me достаёт шприц с обезболивающим из аптечки
-/me вкалывает обезболивающее человеку ((крест накрест. Ранение на правой ноге - обезбол в левую руку и наоборот))
-/me достает зеленку из аптечки и обрабатывает ею края раны
-/me достает давящую повязку из аптечки и накладывает ее на пулевое отверстие
-/do Тампонад наложен.
-/me разрывает одежду в зоне ранения</code></pre></div></div>
-                    <div class="method-block"><h3 class="method-block__title">ПДП при закрытом переломе</h3><div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me кладет человека на пол
-/do Человек в горизонтальном положении.
-/me достает телефон,вызывает скорую помощь
-/me снимает с разгрузки аптечку,открыв ее, ставит на пол
-/do Аптечка открыта на полу.
-/me достает из аптечки медицинскую шину, накладывая ее на место перелома
-/me берет бинты, и туго фиксирует ими шину
-/do Шина зафиксирована.</code></pre></div></div>
-                    <div class="method-block"><h3 class="method-block__title">ПДП при открытом переломе</h3><div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me кладет человека на пол
-/do Человек в горизонтальном положении.
-/me достает телефон,вызывает скорую помощь
-/me снимает с разгрузки аптечку,открыв ее, ставит на пол
-/do Аптечка открыта на полу.
-/me достает нож после чего разрезает одежду около перелома
-/do Одежда отсутствует.
-/me достает из аптечки медицинскую шину, накладывая ее на место перелома
-/me берет бинты, и туго фиксирует ими шину
-/do Шина зафиксирована.</code></pre></div></div>
-                    <div class="method-block"><h3 class="method-block__title">ПДП при капиллярном кровотечении</h3><div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/do Есть ли кровотечение?
+
+                    <div class="alert alert--info">
+                        <div class="alert__icon">📋</div>
+                        <div class="alert__content">
+                            <strong>Алгоритм оказания первой помощи:</strong>
+                            <ol style="margin: 8px 0 0 20px; color: var(--text-secondary);">
+                                <li>Обеспечить безопасность себе, осмотреть обстановку вокруг вас. Только после этого обеспечить безопасность пострадавшего.</li>
+                                <li>Проверить наличие пульса, дыхания, реакции зрачков на свет. (Для проверки дыхания нужно запрокинуть голову пострадавшего и наклониться к его рту или носу в попытке услышать или почувствовать дыхание)</li>
+                                <li>Вызвать специалистов (медиков, военного врача и т.п.).</li>
+                                <li>Оказать первую неотложную помощь в зависимости от ситуации (восстановление проходимости дыхательных путей, сердечно-легочная реанимация, остановка кровотечения и другие действия, направленные на спасение жизни человека).</li>
+                                <li>Обеспечить полный возможный комфорт пострадавшему.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <h2 class="section__heading">Первая помощь при кровотечениях</h2>
+                    <p class="section__subtitle" style="margin-bottom: 16px;">Всего 4 вида кровотечения: капиллярное, венозное, артериальное и паренхиматозное (внутреннее).</p>
+
+                    <!-- Капиллярное -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Капиллярное кровотечение</h3>
+                        <p class="method-block__note">Признаки: кровь сочится каплями, неинтенсивное.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/do Есть ли кровотечение?
 /do Какое кровотечение и где?
 /me достает телефон, вызывает скорую помощь
 /me снимает с разгрузки аптечку, открыв ее, ставит на пол
 /do Аптечка открыта на полу.
 /me достает из аптечки антисептическую повязку
 /do Антисептическая повязка в руках.
-/me обматывает антисептическую повязку на поврежденный участок</code></pre></div></div>
-                    <div class="method-block"><h3 class="method-block__title">ПДП при венозном кровотечении</h3><div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/do Есть ли кровотечение?
+/me обматывает антисептическую повязку на поврежденный участок
+/do Кровотечение прекратилось?</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Венозное -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Венозное кровотечение</h3>
+                        <p class="method-block__note">Признаки: тёмно-вишнёвая кровь, вытекает непрерывной струёй. Важно: при попадании воздуха в вену может наступить летальный исход!</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/do Есть ли кровотечение?
 /do Какое кровотечение и где?
-/me достает телефон,вызывает скорую помощь
-/me снимает с разгрузки аптечки,открыв ее, ставит на пол
+/me достает телефон, вызывает скорую помощь
+/me снимает с разгрузки аптечку, открыв ее, ставит на пол
 /do Аптечка открыта на полу.
 /me протягивает руку в аптечку после чего берет от туда марлю
 /me накладывает марлю на рану
-/me достает из аптечки бинт и вату после чего кладет вату на марлю и туго бинтует
-/do Давящая повязка наложена.</code></pre></div></div>
-                    <div class="method-block"><h3 class="method-block__title">ПДП при артериальном кровотечении</h3><div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/do Есть ли кровотечение?
+/me достает из аптечки бинт и вату после чего кладет вату на марлю и туго бинтует (тампонад)
+/do Давящая повязка наложена.
+/do Кровотечение прекратилось?</code></pre>
+                        </div>
+                        <div class="alert alert--warning" style="margin-top: 16px;">
+                            <div class="alert__icon">📌</div>
+                            <div class="alert__content"><strong>Правила наложения тампонада:</strong><p>1 слой — стерильная салфетка. 2 слой — плотный слой ваты. 3 слой — стерильная салфетка. Всё плотно зафиксировать.</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Артериальное -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Артериальное кровотечение</h3>
+                        <p class="method-block__note">Признаки: пульсирующая струя алого цвета. Самое опасное!</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/do Есть ли кровотечение?
 /do Какого вида кровотечение и где?
-/me берёт телефон и вызывает СМП, затем достаёт аптечки, открывает и кладёт на пол
+/me берёт телефон и вызывает СМП, затем достаёт аптечку, открывает и кладёт на пол
 /me пережимает артерию кулаком в месте ранения, параллельно доставая бинты со жгутом
 /me перевязывает место наложения жгута бинтом и накладывает жгут на место выше ранения, делая первые два тура тугими
-/me достаёт бумажку и ручку, затем записывает время наложения жгута</code></pre></div></div>
+/me достаёт бумажку и ручку, затем записывает время наложения жгута
+/do Кровотечение прекратилось?</code></pre>
+                        </div>
+                        <div class="alert alert--danger" style="margin-top: 16px;">
+                            <div class="alert__icon">⏱️</div>
+                            <div class="alert__content"><strong>Правила наложения жгута:</strong><p>• Жгут накладывается выше ранения, максимально близко к нему.<br>• Первые два тура — максимально тугие.<br>• Время наложения: <strong>летом не более 1 часа, зимой не более 30 минут</strong>.<br>• Обязательно приложить записку с указанием времени наложения.</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Смешанное -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Смешанное кровотечение</h3>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/me достает аптечку, ставит на землю и открывает её
+/do Аптечка на земле в открытом состоянии.
+/me достает жгут и накладывает выше ранения
+/do Жгут наложен.
+/me записывает время наложения жгута
+/me достает телефон, вызывает скорую помощь, убирает телефон
+/me достает антисептическое средство и вату, промачивает вату, затем обрабатывает область вокруг раны
+/do Рана обработана.
+/me накладывает на ранение стерильную салфетку
+/do Салфетка наложена.</code></pre>
+                        </div>
+                    </div>
+
+                    <h2 class="section__heading">Первая помощь при ранениях</h2>
+
+                    <!-- Пулевое -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Пулевое ранение</h3>
+                        <p class="method-block__note">Важно! При пулевых ранениях строго запрещается пытаться вытащить пулю из раны! Запрещено заливать антисептики внутрь раны — только края!</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/me достает телефон, вызывает скорую медицинскую помощь.
+/me запрокидывает голову человека назад, чуть ее поворачивая (если без сознания)
+/me снимает с разгрузки аптечку, открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/do Есть ли кровотечение?
+/do Какое кровотечение и где?
+/do Есть ли противопоказания на обезболивающие?
+/me достаёт шприц с обезболивающим из аптечки
+/me вкалывает обезболивающее человеку (крест-накрест: ранение на правой ноге — укол в левую руку и наоборот)
+/me достает зеленку из аптечки и обрабатывает ею края раны
+/me достает давящую повязку из аптечки и накладывает ее на пулевое отверстие (В случае сквозного ранения повязка накладывается на оба отверстия)
+/do Тампонад наложен.
+/me разрывает одежду в зоне ранения
+/do Одежда разорвана.</code></pre>
+                        </div>
+                        <div class="alert alert--info" style="margin-top: 16px;">
+                            <div class="alert__icon">📌</div>
+                            <div class="alert__content"><strong>Дополнения:</strong><p>• В случае ранения в живот не давать пострадавшему пить и есть, разрешается только смачивать губы водой.<br>• При сквозном ранении повязка накладывается на входное и выходное отверстия.</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Переломы -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Переломы (закрытый и открытый)</h3>
+                        <p class="method-block__note">При открытом переломе ни в коем случае не пытаться вправить кость обратно!</p>
+                        
+                        <h4 style="color: var(--text); margin-top: 20px;">Закрытый перелом</h4>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/me кладет человека на пол
+/do Человек в горизонтальном положении.
+/me достает телефон, вызывает скорую помощь
+/me снимает с разгрузки аптечку, открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/me достает из аптечки медицинскую шину, накладывая ее на место перелома
+/me берет бинты, и туго фиксирует ими шину
+/do Шина зафиксирована.</code></pre>
+                        </div>
+
+                        <h4 style="color: var(--text); margin-top: 20px;">Открытый перелом</h4>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/me кладет человека на пол
+/do Человек в горизонтальном положении.
+/me достает телефон, вызывает скорую помощь
+/me снимает с разгрузки аптечку, открыв ее, ставит на пол
+/do Аптечка открыта на полу.
+/me достает нож после чего разрезает одежду около перелома
+/do Одежда отсутствует.
+/me достает из аптечки медицинскую шину, накладывая ее на место перелома
+/me берет бинты, и туго фиксирует ими шину
+/do Шина зафиксирована.</code></pre>
+                        </div>
+                    </div>
+
+                    <h2 class="section__heading">Другие состояния</h2>
+
+                    <!-- Обморок -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Обморок</h3>
+                        <p class="method-block__note">Кратковременная внезапная потеря сознания.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>Признаки предобморочного состояния: потемнение в глазах, головокружение, тошнота, слабость.
+/me уложил пострадавшего на ровную поверхность
+/me приподнял ноги пострадавшего, обеспечив приток крови к голове
+/me ослабил галстук/воротник, расстегнул ремень
+/me открыл окно для притока свежего воздуха
+/me повернул голову пострадавшего набок
+/me смочил ватку нашатырным спиртом и поднес к носу пострадавшего</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Сотрясение -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Сотрясение головного мозга</h3>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/me уложил пострадавшего на ровную поверхность, под голову подложил подушку
+/me расстегнул стесняющую одежду
+/do Пострадавший без сознания?
+/me перевернул человека на правый бок, согнул левую руку и ногу (чтобы не захлебнулся рвотными массами)
+/me приложил холодный компресс на место ушиба</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Ожоги -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Ожоги</h3>
+                        <p class="method-block__note">Термические и химические.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/me удалил источник ожога
+/me охладил место ожога под проточной прохладной водой (15-20 минут)
+/me промыл рану раствором фурацилина
+/me наложил легкую стерильную марлевую повязку (не сдавливая!)
+/me дал пострадавшему анальгетик</code></pre>
+                        </div>
+                        <div class="alert alert--warning" style="margin-top: 16px;">
+                            <div class="alert__icon">⚠️</div>
+                            <div class="alert__content"><strong>Важно!</strong><p>Ни в коем случае не вскрывать волдыри! Их вскрытие и удаление жидкости проводят только в больнице.</p></div>
+                        </div>
+                    </div>
+
+                    <!-- СЛР -->
+                    <div class="method-block">
+                        <h3 class="method-block__title">Сердечно-легочная реанимация (СЛР)</h3>
+                        <p class="method-block__note">Выполняется при отсутствии признаков жизни: дыхания, пульса, сознания. Соотношение: <strong>2 вдоха : 30 нажатий</strong>.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div>
+                            <pre class="code-block__content"><code>/me уложил пострадавшего на твердую поверхность на спину
+/me запрокинул голову пострадавшего назад, чтобы открыть дыхательные пути
+/me сделал 2 вдоха "изо рта в рот" (зажав нос пострадавшего)
+/me положил одну ладонь на нижнюю половину грудины, сверху другую
+/me начал делать нажатия на грудную клетку (100 нажатий в минуту, прогиб ~5 см)
+/me продолжил цикл 2 вдоха — 30 нажатий до прибытия врачей</code></pre>
+                        </div>
+                    </div>
+
                 </div>
             </section>
+
             <section class="section" id="shturm">
                 <div class="container"><div class="section__header"><h1 class="section__title">🔫 Штурм</h1><p class="section__subtitle">Основные штурмовые группы, виды и тактики штурма</p><div class="section__divider"></div></div>
                 <h2 class="section__heading">Основные штурмовые группы</h2><div class="card-grid card-grid--4">
