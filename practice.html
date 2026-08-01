@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика · СР ДПС</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Unbounded:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DPS Method" />
+    <link rel="manifest" href="site.webmanifest" />
+    <style>
+        .practice-container { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        
+        .scenario-selector { display: flex; flex-wrap: wrap; gap: 8px; }
+        .scenario-btn {
+            padding: 8px 16px; border-radius: 10px; border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03); color: var(--text-muted);
+            cursor: pointer; font-size: 0.8rem; font-weight: 500;
+            transition: var(--transition);
+        }
+        .scenario-btn:hover { background: rgba(56,189,248,0.08); color: var(--text); }
+        .scenario-btn.active { background: var(--primary); color: var(--bg); border-color: var(--primary); }
+
+        /* Выбор травмы для ПДП */
+        .injury-selector {
+            display: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .injury-selector.show { display: flex; }
+        .injury-btn {
+            padding: 6px 14px; border-radius: 8px; border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02); color: var(--text-muted);
+            cursor: pointer; font-size: 0.75rem; font-weight: 500;
+            transition: var(--transition);
+        }
+        .injury-btn:hover { background: rgba(239,68,68,0.08); color: #f87171; }
+        .injury-btn.active { background: rgba(239,68,68,0.12); border-color: #ef4444; color: #f87171; }
+
+        /* Режимы для переговоров */
+        .mode-selector {
+            display: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .mode-selector.show { display: flex; }
+        .mode-btn {
+            padding: 6px 14px; border-radius: 8px; border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02); color: var(--text-muted);
+            cursor: pointer; font-size: 0.75rem; font-weight: 500;
+            transition: var(--transition);
+        }
+        .mode-btn:hover { background: rgba(239,68,68,0.08); color: #f87171; }
+        .mode-btn.active { background: rgba(239,68,68,0.12); border-color: #ef4444; color: #f87171; }
+
+        .practice-status {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 10px;
+            padding: 12px 16px; background: rgba(255,255,255,0.02);
+            border-radius: 12px; border: 1px solid var(--border);
+        }
+        .practice-status .step-info { color: var(--text-muted); font-size: 0.9rem; }
+        .practice-status .step-info strong { color: var(--primary); }
+        .practice-status .controls { display: flex; gap: 10px; }
+        .practice-status .controls button {
+            padding: 6px 16px; border-radius: 8px; border: 1px solid var(--border);
+            background: transparent; color: var(--text-muted); cursor: pointer;
+            font-size: 0.8rem; transition: var(--transition);
+        }
+        .practice-status .controls button:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+        .practice-status .controls .reset-btn:hover { border-color: #ef4444; color: #ef4444; }
+
+        .chat-box {
+            background: var(--bg-card); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 20px; min-height: 400px; max-height: 500px;
+            overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+        }
+        .chat-box::-webkit-scrollbar { width: 6px; }
+        .chat-box::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+        .chat-message {
+            padding: 10px 16px; border-radius: 12px; max-width: 85%;
+            animation: fadeInMsg 0.3s ease;
+        }
+        @keyframes fadeInMsg { 0% { opacity:0; transform:translateY(10px); } 100% { opacity:1; transform:translateY(0); } }
+
+        .chat-message.user { align-self: flex-end; background: var(--primary); color: var(--bg); }
+        .chat-message.ai { align-self: flex-start; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text); }
+        .chat-message.system { align-self: center; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); color: #f87171; font-size: 0.85rem; max-width: 95%; }
+        .chat-message.success { align-self: center; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15); color: #4ade80; font-size: 0.85rem; max-width: 95%; }
+        .chat-message.do-ai { align-self: flex-start; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); color: #fbbf24; max-width: 95%; }
+        .chat-message.warning { align-self: center; background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.1); color: #fbbf24; font-size: 0.85rem; max-width: 95%; }
+        .chat-message.fail { align-self: center; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); color: #f87171; font-size: 0.85rem; max-width: 95%; }
+        .chat-message.terrorist { align-self: flex-start; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.12); color: #fca5a5; max-width: 90%; }
+
+        .chat-message .msg-label { font-size: 0.65rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600; }
+        .chat-message .msg-label .badge { background: var(--primary); color: var(--bg); padding: 1px 8px; border-radius: 6px; font-size: 0.6rem; margin-left: 6px; }
+
+        .chat-input-area { display: flex; gap: 12px; }
+        .chat-input-area input {
+            flex: 1; padding: 12px 18px; border-radius: 12px;
+            border: 1px solid var(--border); background: rgba(255,255,255,0.03);
+            color: var(--text); font-family: 'Outfit', sans-serif; font-size: 0.95rem;
+            outline: none; transition: var(--transition);
+        }
+        .chat-input-area input:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(56,189,248,0.05); }
+        .chat-input-area input::placeholder { color: var(--text-muted); }
+        .chat-input-area button {
+            padding: 12px 28px; border-radius: 12px; border: none;
+            background: var(--primary); color: var(--bg); font-weight: 700;
+            cursor: pointer; transition: var(--transition); white-space: nowrap;
+        }
+        .chat-input-area button:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(56,189,248,0.15); }
+        .chat-input-area button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+        .hint-box {
+            padding: 12px 16px; border-radius: 12px;
+            background: rgba(245,158,11,0.04); border: 1px solid rgba(245,158,11,0.08);
+            color: #fbbf24; font-size: 0.9rem; display: none;
+        }
+        .hint-box.show { display: block; }
+        .hint-box .hint-label { font-weight: 600; margin-right: 8px; }
+
+        .status-panel {
+            display: none;
+            padding: 12px 16px; border-radius: 12px;
+            background: rgba(56,189,248,0.04); border: 1px solid rgba(56,189,248,0.08);
+            color: var(--text-secondary); font-size: 0.9rem;
+        }
+        .status-panel.show { display: block; }
+        .status-panel strong { color: var(--primary); }
+        .status-panel .danger { color: #ef4444; }
+        .status-panel .success { color: #4ade80; }
+
+        .info-box {
+            padding: 12px 16px; border-radius: 12px;
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;
+        }
+        .info-box strong { color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .chat-box { min-height: 300px; max-height: 350px; }
+            .chat-input-area { flex-direction: column; }
+            .chat-input-area button { width: 100%; }
+            .practice-status { flex-direction: column; align-items: stretch; text-align: center; }
+            .practice-status .controls { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+            <div class="sidebar__logo">
+                <span class="sidebar__logo-icon">🚔</span>
+                <span class="sidebar__logo-text">СР ДПС</span>
+            </div>
+            <span class="sidebar__badge">Практика</span>
+        </div>
+        <nav class="sidebar__nav">
+            <ul class="sidebar__menu">
+                <li><a href="index.html" class="sidebar__link"><span class="sidebar__icon">🏠</span> Главная</a></li>
+                <li><a href="primery.html" class="sidebar__link"><span class="sidebar__icon">📖</span> Примеры</a></li>
+                <li><a href="practice.html" class="sidebar__link active"><span class="sidebar__icon">🎯</span> Практика</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar__footer">
+            <button class="theme-toggle" id="themeToggle"><span class="theme-toggle__icon">☀️</span></button>
+            <span class="sidebar__version">v3.0</span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <button class="topbar__menu-btn" id="sidebarToggle">☰</button>
+            <div class="topbar__brand">
+                <span class="topbar__brand-icon">🚔</span>
+                <span class="topbar__brand-text">СР ДПС · <span>Практика</span></span>
+            </div>
+            <div class="topbar__info"><span class="topbar__user">👤 Сотрудник</span></div>
+        </header>
+
+        <div class="page">
+            <section class="section">
+                <div class="section__header">
+                    <h1 class="section__title">🎯 Тренажёр отыгровок</h1>
+                    <p class="section__subtitle">Интерактивный ИИ-инструктор с ветвлениями и ИИ-отыгровщиком</p>
+                    <div class="section__divider"></div>
+                </div>
+
+                <div class="practice-container">
+
+                    <div class="scenario-selector" id="scenarioSelector">
+                        <button class="scenario-btn" data-scenario="svu-do">СВУ /do</button>
+                        <button class="scenario-btn" data-scenario="svu-try">СВУ /try</button>
+                        <button class="scenario-btn" data-scenario="rastyazhka">Растяжка</button>
+                        <button class="scenario-btn active" data-scenario="first-aid">ПДП</button>
+                        <button class="scenario-btn" data-scenario="peregovory">Переговоры</button>
+                    </div>
+
+                    <!-- Выбор травмы для ПДП -->
+                    <div class="injury-selector show" id="injurySelector">
+                        <button class="injury-btn active" data-injury="pulevoe">🔫 Пулевое</button>
+                        <button class="injury-btn" data-injury="zakrytyi_perelom">🦴 Закрытый перелом</button>
+                        <button class="injury-btn" data-injury="otkrytyi_perelom">🩸 Открытый перелом</button>
+                        <button class="injury-btn" data-injury="kapillyarnoe">💧 Капиллярное</button>
+                        <button class="injury-btn" data-injury="venoznoe">🩸 Венозное</button>
+                        <button class="injury-btn" data-injury="arterialnoe">🚨 Артериальное</button>
+                    </div>
+
+                    <!-- Режимы для переговоров -->
+                    <div class="mode-selector" id="modeSelector">
+                        <button class="mode-btn active" data-mode="hard">😈 Тяжело</button>
+                        <button class="mode-btn" data-mode="medium">😐 Средне</button>
+                        <button class="mode-btn" data-mode="easy">😇 Легко</button>
+                    </div>
+
+                    <div class="practice-status">
+                        <div class="step-info">
+                            Шаг <strong id="currentStep">0</strong> / <span id="totalSteps">0</span>
+                            <span style="margin-left:12px;color:var(--text-muted);">|</span>
+                            <span id="scenarioName" style="color:var(--primary);">ПДП</span>
+                        </div>
+                        <div class="controls">
+                            <button class="reset-btn" id="resetPractice">🔄 Сбросить</button>
+                            <button id="showHintBtn">💡 Подсказка</button>
+                        </div>
+                    </div>
+
+                    <div id="statusPanel" class="status-panel show">
+                        <div id="statusContent">
+                            🏥 Состояние: <strong id="victimStatus">В сознании</strong>
+                            <span style="margin-left:16px;">|</span>
+                            🩸 Кровотечение: <strong id="victimBleeding">Отсутствует</strong>
+                            <span style="margin-left:16px;">|</span>
+                            ⏱️ Время: <strong id="timeCounter">00:00</strong>
+                        </div>
+                    </div>
+
+                    <div class="hint-box" id="hintBox">
+                        <span class="hint-label">💡 Подсказка:</span>
+                        <span id="hintText">Начни отыгровку</span>
+                    </div>
+
+                    <div class="chat-box" id="chatBox">
+                        <div class="chat-message ai">
+                            <div class="msg-label">🤖 ИИ-инструктор</div>
+                            Добро пожаловать в тренажёр v3.0!<br>
+                            Выбери сценарий и начинай.<br>
+                            <strong>ПДП:</strong> выбери тип травмы и действуй.<br>
+                            <strong>Переговоры:</strong> ИИ будет вести диалог как террорист.
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" id="commandInput" placeholder="Введи команду... /me, /do или /try" autofocus>
+                        <button id="sendBtn">▶ Отправить</button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <span class="footer__logo">🚔 СР ДПС</span>
+                <p class="footer__desc">Интерактивный тренажёр отыгровок v3.0</p>
+            </div>
+            <div class="footer__copy"><p>© 2026 Amazing Online Roleplay</p></div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/practice.js"></script>
+</body>
+</html>
