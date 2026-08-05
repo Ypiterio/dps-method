@@ -35,7 +35,6 @@
                 <li><a href="#shturm" class="sidebar__link"><span class="sidebar__icon">🔫</span> Штурм</a></li>
                 <li><a href="#peregovory" class="sidebar__link"><span class="sidebar__icon">🤝</span> Переговоры</a></li>
                 <li><a href="#theory" class="sidebar__link"><span class="sidebar__icon">📚</span> Теория</a></li>
-                <li><a href="#dtp" class="sidebar__link"><span class="sidebar__icon">🚗</span> ДТП</a></li>
                 <li><a href="#zaderzhanie" class="sidebar__link"><span class="sidebar__icon">⛓️</span> Задержание</a></li>
                 <li><a href="#subordinatsiya" class="sidebar__link"><span class="sidebar__icon">🎖️</span> Субординация</a></li>
                 <li><a href="primery.html" class="sidebar__link"><span class="sidebar__icon">🔢</span> Примеры</a></li>
@@ -455,23 +454,283 @@
             </section>
 
             <section class="section" id="shturm">
-                <div class="container"><div class="section__header"><h1 class="section__title">🔫 Штурм</h1><p class="section__subtitle">Основные штурмовые группы, виды и тактики штурма</p><div class="section__divider"></div></div>
-                <h2 class="section__heading">Основные штурмовые группы</h2><div class="card-grid card-grid--4">
-                    <div class="card"><div class="card__icon">⚔️</div><h3 class="card__title">Штурмовая</h3><p class="card__desc">Зачистка, работа в двойках/тройках</p></div>
-                    <div class="card"><div class="card__icon">🛡️</div><h3 class="card__title">Закрепление</h3><p class="card__desc">Контроль позиций и точек</p></div>
-                    <div class="card"><div class="card__icon">🔄</div><h3 class="card__title">Резерв</h3><p class="card__desc">Усиление при необходимости</p></div>
-                    <div class="card"><div class="card__icon">🚁</div><h3 class="card__title">Эвакуация</h3><p class="card__desc">Вывод личного состава</p></div>
+                <div class="container">
+                    <div class="section__header">
+                        <h1 class="section__title">🔫 Штурм</h1>
+                        <p class="section__subtitle">Основные штурмовые группы, виды и тактики штурма</p>
+                        <div class="section__divider"></div>
+                    </div>
+                    
+                    <h2 class="section__heading">Основные штурмовые группы</h2>
+                    <div class="card-grid card-grid--4">
+                        <div class="card"><div class="card__icon">⚔️</div><h3 class="card__title">Штурмовая</h3><p class="card__desc">Зачистка, работа в двойках/тройках</p></div>
+                        <div class="card"><div class="card__icon">🛡️</div><h3 class="card__title">Закрепление</h3><p class="card__desc">Контроль позиций и точек</p></div>
+                        <div class="card"><div class="card__icon">🔄</div><h3 class="card__title">Резерв</h3><p class="card__desc">Усиление при необходимости</p></div>
+                        <div class="card"><div class="card__icon">🚁</div><h3 class="card__title">Эвакуация</h3><p class="card__desc">Вывод личного состава</p></div>
+                    </div>
+
+                    <h2 class="section__heading">Виды штурма</h2>
+                    <div class="card-grid card-grid--2">
+                        <div class="card card--primary"><div class="card__icon">👮</div><h3 class="card__title">Полицейский</h3><p class="card__desc">Минимизация потерь, использование светошумовых/газовых гранат, сохранение жизни заложников</p></div>
+                        <div class="card card--danger"><div class="card__icon">💀</div><h3 class="card__title">Армейский</h3><p class="card__desc">Полное уничтожение противника, использование тяжелого вооружения</p></div>
+                    </div>
+
+                    <h2 class="section__heading">Основные тактики штурма зданий</h2>
+                    
+                    <style>
+                        .tactics-grid {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 24px;
+                            margin-top: 16px;
+                        }
+                        .tactics-card {
+                            background: var(--bg-secondary);
+                            border-radius: 12px;
+                            border: 1px solid var(--border-color);
+                            overflow: hidden;
+                            transition: transform 0.2s, box-shadow 0.2s;
+                            cursor: pointer;
+                        }
+                        .tactics-card:hover {
+                            transform: translateY(-4px);
+                            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+                        }
+                        .tactics-card__image {
+                            width: 100%;
+                            height: 200px;
+                            background: var(--bg-tertiary);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 64px;
+                            color: var(--text-secondary);
+                            border-bottom: 1px solid var(--border-color);
+                            overflow: hidden;
+                            transition: opacity 0.2s;
+                        }
+                        .tactics-card__image:hover {
+                            opacity: 0.85;
+                        }
+                        .tactics-card__image img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            display: block;
+                        }
+                        .tactics-card__body {
+                            padding: 16px 20px 20px;
+                        }
+                        .tactics-card__body h3 {
+                            font-family: 'Unbounded', sans-serif;
+                            font-weight: 700;
+                            font-size: 18px;
+                            color: var(--text);
+                            margin-bottom: 8px;
+                        }
+                        .tactics-card__body p {
+                            color: var(--text-secondary);
+                            font-size: 14px;
+                            line-height: 1.6;
+                        }
+                        .tactics-card__body .tactics-card__click-hint {
+                            font-size: 12px;
+                            color: var(--text-tertiary);
+                            margin-top: 12px;
+                            opacity: 0.7;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        }
+
+                        /* Модальное окно */
+                        .modal-overlay {
+                            display: none;
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: rgba(0, 0, 0, 0.9);
+                            z-index: 9999;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            opacity: 0;
+                            transition: opacity 0.3s;
+                        }
+                        .modal-overlay.active {
+                            display: flex;
+                            opacity: 1;
+                        }
+                        .modal-overlay__content {
+                            max-width: 90%;
+                            max-height: 90%;
+                            border-radius: 12px;
+                            overflow: hidden;
+                            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+                            transform: scale(0.9);
+                            transition: transform 0.3s;
+                            cursor: default;
+                        }
+                        .modal-overlay.active .modal-overlay__content {
+                            transform: scale(1);
+                        }
+                        .modal-overlay__content img {
+                            width: 100%;
+                            height: 100%;
+                            max-width: 90vw;
+                            max-height: 85vh;
+                            object-fit: contain;
+                            display: block;
+                            background: #0d0d1a;
+                        }
+                        .modal-overlay__close {
+                            position: fixed;
+                            top: 24px;
+                            right: 32px;
+                            font-size: 40px;
+                            color: #fff;
+                            cursor: pointer;
+                            transition: transform 0.2s;
+                            z-index: 10000;
+                            font-family: 'Outfit', sans-serif;
+                            line-height: 1;
+                            opacity: 0.7;
+                        }
+                        .modal-overlay__close:hover {
+                            transform: rotate(90deg);
+                            opacity: 1;
+                        }
+                        .modal-overlay__caption {
+                            position: fixed;
+                            bottom: 32px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            color: rgba(255,255,255,0.8);
+                            font-family: 'Unbounded', sans-serif;
+                            font-size: 18px;
+                            font-weight: 500;
+                            background: rgba(0,0,0,0.6);
+                            padding: 8px 24px;
+                            border-radius: 8px;
+                            backdrop-filter: blur(8px);
+                            border: 1px solid rgba(255,255,255,0.1);
+                            z-index: 10000;
+                            text-align: center;
+                        }
+
+                        @media (max-width: 768px) {
+                            .tactics-grid {
+                                grid-template-columns: 1fr;
+                            }
+                            .tactics-card__image {
+                                height: 150px;
+                            }
+                            .modal-overlay__caption {
+                                font-size: 14px;
+                                padding: 6px 16px;
+                                bottom: 16px;
+                                max-width: 90%;
+                            }
+                            .modal-overlay__close {
+                                top: 16px;
+                                right: 20px;
+                                font-size: 32px;
+                            }
+                        }
+                    </style>
+
+                    <div class="tactics-grid">
+                        <!-- Крючок -->
+                        <div class="tactics-card" onclick="openModal('assets/img/tactics/hook.png', '«Крючок»')">
+                            <div class="tactics-card__image">
+                                <img src="assets/img/tactics/hook.png" alt="Тактика Крючок" onerror="this.style.display='none'; this.parentElement.innerHTML='🪝'">
+                            </div>
+                            <div class="tactics-card__body">
+                                <h3>«Крючок»</h3>
+                                <p>Применяется при вооружении короткоствольным оружием и широких дверях. Сотрудники одновременно становятся на колено, удерживаются за косяк двери, затем входят в помещение, пригнувшись и контролируя свои направления.</p>
+                                <div class="tactics-card__click-hint">🔍 Нажмите на изображение для увеличения</div>
+                            </div>
+                        </div>
+
+                        <!-- Крест -->
+                        <div class="tactics-card" onclick="openModal('assets/img/tactics/cross.png', '«Крест»')">
+                            <div class="tactics-card__image">
+                                <img src="assets/img/tactics/cross.png" alt="Тактика Крест" onerror="this.style.display='none'; this.parentElement.innerHTML='✝️'">
+                            </div>
+                            <div class="tactics-card__body">
+                                <h3>«Крест»</h3>
+                                <p>Применяется когда ширина дверей значения не имеет. Сотрудники входят один за другим по диагонали, практически одновременно зачищая обе мертвые зоны.</p>
+                                <div class="tactics-card__click-hint">🔍 Нажмите на изображение для увеличения</div>
+                            </div>
+                        </div>
+
+                        <!-- Угол -->
+                        <div class="tactics-card" onclick="openModal('assets/img/tactics/angle.png', '«Угол»')">
+                            <div class="tactics-card__image">
+                                <img src="assets/img/tactics/angle.png" alt="Тактика Угол" onerror="this.style.display='none'; this.parentElement.innerHTML='📐'">
+                            </div>
+                            <div class="tactics-card__body">
+                                <h3>«Угол»</h3>
+                                <p>Уместен когда дверь расположена около стены. Вариант выполнения определяет №1, №2 подстраивается под действия направляющего.</p>
+                                <div class="tactics-card__click-hint">🔍 Нажмите на изображение для увеличения</div>
+                            </div>
+                        </div>
+
+                        <!-- Диагональ -->
+                        <div class="tactics-card" onclick="openModal('assets/img/tactics/diagonal.png', '«Диагональ»')">
+                            <div class="tactics-card__image">
+                                <img src="assets/img/tactics/diagonal.png" alt="Тактика Диагональ" onerror="this.style.display='none'; this.parentElement.innerHTML='↗️'">
+                            </div>
+                            <div class="tactics-card__body">
+                                <h3>«Диагональ»</h3>
+                                <p>Похожа на способ «угол», но сотрудники становятся спиной к одной из стен, контролируя всё помещение каждый в своём секторе. Применяется когда зачищаемое помещение последнее.</p>
+                                <div class="tactics-card__click-hint">🔍 Нажмите на изображение для увеличения</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h2 class="section__heading">Виды штурма</h2><div class="card-grid card-grid--2">
-                    <div class="card card--primary"><div class="card__icon">👮</div><h3 class="card__title">Полицейский</h3><p class="card__desc">Минимизация потерь, использование светошумовых/газовых гранат, сохранение жизни заложников</p></div>
-                    <div class="card card--danger"><div class="card__icon">💀</div><h3 class="card__title">Армейский</h3><p class="card__desc">Полное уничтожение противника, использование тяжелого вооружения</p></div>
+
+                <!-- Модальное окно -->
+                <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+                    <div class="modal-overlay__close" onclick="closeModal(event)">✕</div>
+                    <div class="modal-overlay__content" onclick="event.stopPropagation()">
+                        <img id="modalImage" src="" alt="">
+                    </div>
+                    <div class="modal-overlay__caption" id="modalCaption"></div>
                 </div>
-                <h2 class="section__heading">Основные тактики штурма зданий</h2><div class="card-grid card-grid--4">
-                    <div class="card"><h3 class="card__title">«Крючок»</h3><p class="card__desc">Применяется при вооружении короткоствольным оружием и широких дверях. Сотрудники одновременно становятся на колено, удерживаются за косяк двери, затем входят в помещение, пригнувшись и контролируя свои направления.</p></div>
-                    <div class="card"><h3 class="card__title">«Крест»</h3><p class="card__desc">Применяется когда ширина дверей значения не имеет. Сотрудники входят один за другим по диагонали, практически одновременно зачищая обе мертвые зоны.</p></div>
-                    <div class="card"><h3 class="card__title">«Угол»</h3><p class="card__desc">Уместен когда дверь расположена около стены. Вариант выполнения определяет №1, №2 подстраивается под действия направляющего.</p></div>
-                    <div class="card"><h3 class="card__title">«Диагональ»</h3><p class="card__desc">Похожа на способ «угол», но сотрудники становятся спиной к одной из стен, контролируя всё помещение каждый в своём секторе. Применяется когда зачищаемое помещение последнее.</p></div>
-                </div></div>
+
+                <script>
+                    function openModal(src, caption) {
+                        const overlay = document.getElementById('modalOverlay');
+                        const img = document.getElementById('modalImage');
+                        const cap = document.getElementById('modalCaption');
+                        img.src = src;
+                        cap.textContent = caption;
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+
+                    function closeModal(event) {
+                        const overlay = document.getElementById('modalOverlay');
+                        if (event.target === overlay || event.target.classList.contains('modal-overlay__close')) {
+                            overlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    }
+
+                    // Закрытие по ESC
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape') {
+                            const overlay = document.getElementById('modalOverlay');
+                            if (overlay.classList.contains('active')) {
+                                overlay.classList.remove('active');
+                                document.body.style.overflow = '';
+                            }
+                        }
+                    });
+                </script>
             </section>
             <section class="section" id="peregovory">
                 <div class="container"><div class="section__header"><h1 class="section__title">🤝 Переговоры</h1><p class="section__subtitle">Цели, обязательные действия и запреты</p><div class="section__divider"></div></div>
@@ -480,104 +739,145 @@
                 <div class="alert alert--danger"><div class="alert__icon">⛔</div><div class="alert__content"><strong>Запрещено во время переговоров:</strong><ul><li>Провоцировать, конфликтовать, повышать тон на преступников</li><li>Игнорировать требования похитителей</li><li>Рисковать жизнью заложников</li><li>Идти за захватчиками, если они предлагают пройти посмотреть на заложника</li><li>Нарушать данные обещания (если они были даны)</li></ul></div></div></div>
             </section>
             <section class="section" id="theory">
-                <div class="container"><div class="section__header"><h1 class="section__title">📚 Теоретическая база</h1><p class="section__subtitle">5 лекций СР ДПС</p><div class="section__divider"></div></div>
-                <div class="tabs"><div class="tabs__nav"><button class="tabs__btn active" data-tab="tab1">Основы права</button><button class="tabs__btn" data-tab="tab2">Уголовное право</button><button class="tabs__btn" data-tab="tab3">Процессуальные действия</button><button class="tabs__btn" data-tab="tab4">Разминирование</button><button class="tabs__btn" data-tab="tab5">Первая помощь</button></div>
+                <div class="container"><div class="section__header"><h1 class="section__title">📚 Теоретическая база</h1><p class="section__subtitle">Теория для СР ДПС</p><div class="section__divider"></div></div>
+                <div class="tabs"><div class="tabs__nav"><button class="tabs__btn active" data-tab="tab1">Основы права</button><button class="tabs__btn" data-tab="tab2">Уголовное право</button><button class="tabs__btn" data-tab="tab3">Процессуальные действия</button><button class="tabs__btn" data-tab="tab4">Разминирование</button><button class="tabs__btn" data-tab="tab5">Первая помощь</button><button class="tabs__btn" data-tab="tab6">ДТП</button></div>
                 <div class="tabs__content active" id="tab1"><h3>Основы государства и права</h3><h4>Ветви власти Российской Федерации</h4><ul><li><strong>Законодательная власть</strong> — Федеральное Собрание.</li><li><strong>Исполнительная власть</strong> — Правительство, федеральные органы (в т.ч. ФСБ).</li><li><strong>Судебная власть</strong> — суды всех уровней.</li></ul><div class="highlight"><strong>ФСБ</strong> относится к органам исполнительной власти в сфере безопасности.<br><strong>Адвокатура</strong> не относится ни к одной из ветвей власти и является независимым профессиональным сообществом.</div><h4>Основные понятия</h4><ul><li><strong>Право</strong> — система общеобязательных норм, охраняемых государством.</li><li><strong>Нормативный правовой акт</strong> — официальный документ, принятый уполномоченным государственным органом.</li><li><strong>Государственное принуждение</strong> — меры воздействия государства на нарушителей закона.</li></ul><h4>Формы принуждения</h4><p>предупреждение · пресечение · правовосстановление · юридическая ответственность</p><h4>Презумпция невиновности</h4><div class="highlight">Лицо считается невиновным, пока его вина не будет доказана и установлена вступившим в законную силу приговором суда.</div><ul><li>обвиняемый не обязан доказывать свою невиновность;</li><li>все сомнения толкуются в пользу обвиняемого;</li><li>обвинительный приговор не может основываться на предположениях.</li></ul><h4>Аксиомы уголовного права</h4><ul><li>Все равны перед законом.</li><li>Нельзя дважды судить за одно преступление.</li><li>Без вины нет ответственности.</li><li>Незнание закона не освобождает от ответственности.</li></ul></div>
                 <div class="tabs__content" id="tab2"><h3>Основы уголовного права</h3><h4>Преступление</h4><div class="highlight"><strong>Преступление</strong> — виновное, общественно опасное деяние, запрещённое уголовным законом под угрозой наказания.</div><ul><li><strong>Уголовная ответственность</strong> — правовое последствие совершения преступления.</li><li><strong>Наказание</strong> — мера государственного принуждения, назначаемая судом.</li></ul><h4>Состав преступления</h4><ul><li><strong>Объект</strong> — то, на что направлено посягательство.</li><li><strong>Субъект</strong> — лицо, совершившее преступление.</li><li><strong>Объективная сторона</strong> — деяние, последствия, причинная связь, место, время, способ.</li><li><strong>Субъективная сторона</strong> — вина, мотив, цель.</li></ul><h4>Отдельные виды преступлений</h4><ul><li><strong>Захват заложника</strong> — удержание лица с целью понуждения к совершению определённых действий.</li><li><strong>Похищение человека</strong> — незаконный захват и удержание лица против его воли.</li><li><strong>Акт агрессии против мирного населения</strong> — действия, создающие угрозу жизни и безопасности граждан.</li></ul></div>
                 <div class="tabs__content" id="tab3"><h3>Процессуальные действия и доказательства</h3><h4>Процессуальные действия</h4><ul><li>допрос;</li><li>обыск;</li><li>выемка;</li><li>избрание меры пресечения;</li><li>прекращение уголовного дела.</li></ul><h4>Доказательства</h4><ul><li><strong>Вещественные</strong> — орудия преступления, следы, предметы, полученные преступным путём.</li><li><strong>Невещественные</strong> — информация, программы, физические поля, имущественные права.</li></ul><h4>Показания</h4><ul><li>показания подозреваемого;</li><li>показания обвиняемого;</li><li>показания свидетеля.</li></ul><h4>Задержание и арест</h4><ul><li><strong>Задержание</strong> — кратковременное лишение свободы лица, подозреваемого в совершении правонарушения.</li><li><strong>Арест</strong> — уголовное наказание в виде содержания лица в условиях строгой изоляции.</li><li><strong>Протокол задержания</strong> — документ, фиксирующий основания и обстоятельства.</li></ul><h4>Общественное место</h4><ul><li>улицы, парки, торговые центры;</li><li>подъезды, остановки, общественный транспорт.</li></ul><h4>Полиция и оперативные подразделения</h4><div class="highlight"><strong>СР ДПС</strong> — структурное подразделение, предназначенное для обеспечения безопасности дорожного движения, предотвращения правонарушений, реагирования на вызовы, оформления ДТП, сопровождения первых лиц государства, организации дорожного движения и проведения специальных рейдов.</div></div>
                 <div class="tabs__content" id="tab4"><h3>Основы разминирования</h3><h4>Классификация взрывных устройств</h4><ul><li><strong>По изготовлению:</strong> промышленные (заводские) и самодельные (СВУ).</li><li><strong>По управлению:</strong> механические, электрические, электронные (таймер), радиоуправляемые.</li></ul><h4>Основные элементы СВУ</h4><p>заряд ВВ · средство инициирования · источник питания · система управления</p><h4>Этапы разминирования</h4><ol><li><strong>Обнаружение:</strong> визуальный осмотр, ДРП (дальномерный радиолокационный поиск), Пелена-12 (локатор взрывчатых веществ).</li><li><strong>Определение типа:</strong> таймер, способ активации (нажимной, натяжной, дистанционный), наличие антиразгрузочных элементов (ловушек), количество и цвет проводов.</li><li><strong>Локализация и изоляция:</strong> Пелена-12 (стационарный глушитель радиосигналов), ЗКС (защитный костюм сапёра), титановый кейс для транспортировки.</li><li><strong>Обезвреживание:</strong> осмотр, вскрытие, прозвон проводов мультиметром, перекус в последовательности: нейтраль → плюс → минус, извлечение заряда, отделение капсюля-детонатора, упаковка в кейс.</li></ol><div class="warning"><strong>Запрещено:</strong> перерезать все провода одновременно · игнорировать антиразгрузочные элементы · наклоняться над корпусом ВУ · использовать металлические инструменты без изоляции.</div><h4>Ключевые нюансы</h4><ul><li><strong>Таймер</strong> обезвреживается в последнюю очередь. Перерезание проводов питания таймера может привести к детонации, если таймер подключён к взрывателю через цепь замыкания.</li><li><strong>Пелена-12 и титановый кейс</strong> — снаряжение, требующее физической выносливости. Их перемещение осуществляется минимум двумя оперативниками.</li><li><strong>Растяжка (натяжное устройство):</strong> обхват корпуса гранаты рукой, палец в кольцо чеки, разведение усиков шплинта, удержание чеки, перекусывание лески, возврат чеки в запал.</li></ul></div>
-                <div class="tabs__content" id="tab5"><h3>Основы первой помощи (ПДП)</h3><h4>Уровни оказания помощи</h4><ul><li><strong>Первая помощь</strong> — простые, жизненно важные меры, выполняемые любым человеком до прибытия врачей.</li><li><strong>Первая доврачебная помощь</strong> — выполняется лицами со специальной подготовкой (фельдшер, медсестра). Включает в себя более широкий спектр манипуляций.</li><li><strong>Первая медицинская помощь</strong> — специализированная помощь врачами, бригадой скорой помощи.</li></ul><h4>Порядок действий при обнаружении пострадавшего</h4><ol><li><strong>Оценка безопасности</strong> — убедиться в отсутствии угрозы для себя и пострадавшего.</li><li><strong>Вызов скорой помощи</strong> — сообщить точный адрес, характер происшествия, количество пострадавших.</li><li><strong>Оценка состояния</strong> — проверить сознание, дыхание, пульс.</li><li><strong>Остановка кровотечения</strong> — первое по времени критическое действие.</li><li><strong>Обезболивание</strong> (при наличии препаратов).</li><li><strong>Обработка раны и наложение повязки.</strong></li><li><strong>Иммобилизация</strong> (при переломах).</li><li><strong>Транспортировка</strong> (только при необходимости, если скорая не может прибыть быстро).</li></ol><h4>Классификация кровотечений и методы остановки</h4><ul><li><strong>Капиллярное</strong> — кровь сочится каплями. Действия: антисептическая повязка.</li><li><strong>Венозное</strong> — тёмно-вишнёвая кровь, вытекает непрерывной струёй. Действия: давящая повязка (марля + вата + тугое бинтование).</li><li><strong>Артериальное</strong> — алая кровь, пульсирующая струя. Действия: пальцевое пережатие артерии → наложение жгута выше места ранения с фиксацией времени наложения.</li></ul><div class="warning"><strong>Правила наложения жгута:</strong> накладывается только при артериальном кровотечении · выше ранения, максимально близко к нему · первые два тура — максимально тугие · обязательное указание времени наложения · держать не более 1,5–2 часов в тёплое время и 1 час в холодное.</div><h4>Порядок действий при различных ранениях</h4><ul><li><strong>Пулевое/огнестрельное ранение:</strong> вызов скорой, при отсутствии сознания — запрокинуть голову и повернуть на бок, открыть аптечку, оценить кровотечение, уточнить противопоказания на обезболивающие, ввести обезболивающее (крест-накрест: ранение на правой ноге — укол в левую руку и наоборот), обработать края раны антисептиком, наложить давящую повязку, при необходимости разорвать одежду в зоне ранения.</li><li><strong>Закрытый перелом:</strong> уложить пострадавшего на пол, вызвать скорую, наложить медицинскую шину, зафиксировать шину бинтами.</li><li><strong>Открытый перелом:</strong> уложить пострадавшего на пол, вызвать скорую, разрезать одежду в области перелома, наложить шину, зафиксировать шину бинтами.</li></ul><h4>Основные принципы ПДП</h4><div class="highlight"><strong>Не навреди</strong> — действия должны улучшать состояние, а не ухудшать.<br><strong>Приоритеты:</strong> кровотечение > дыхание > переломы.<br><strong>Иммобилизация</strong> (обездвиживание) обязательна при любых подозрениях на перелом позвоночника или крупных костей.<br><strong>Обезболивание</strong> — вводится только если пострадавший в сознании и нет аллергии.<br><strong>Транспортировка</strong> — только в крайнем случае, с учётом характера травм.</div><h4>Дополнительные нюансы для оперативных подразделений</h4><ul><li>Аптечка всегда находится в доступном месте (разгрузка, авто).</li><li>Иметь при себе: жгут, бинты, марлю, шины, антисептик, обезболивающее (при наличии допуска).</li><li>При массовом поражении — сортировка по тяжести состояния.</li><li>При химическом или радиационном поражении — использование индивидуальных средств защиты (противогаз, ОЗК).</li></ul></div></div></div>
-            </section>
-            <section class="section" id="dtp">
-                <div class="container"><div class="section__header"><h1 class="section__title">🚗 Оформление ДТП</h1><p class="section__subtitle">Полный порядок действий при оформлении дорожно-транспортного происшествия</p><div class="section__divider"></div></div>
-                <h2 class="section__heading">Первая часть</h2><div class="alert alert--info"><div class="alert__icon">📋</div><div class="alert__content"><p>В случае если требуется:</p><ul><li>Вызвать скорую помощь</li><li>Оказать ПДП</li><li>Представиться всем</li><li>Ограждения</li></ul></div></div>
-                <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me открыл багажник авто, после чего достал сумку
-/me из сумки достал документы оформления ДТП, начал записывать своё звание, должность
+                <div class="tabs__content" id="tab5"><h3>Основы первой помощи (ПДП)</h3><h4>Уровни оказания помощи</h4><ul><li><strong>Первая помощь</strong> — простые, жизненно важные меры, выполняемые любым человеком до прибытия врачей.</li><li><strong>Первая доврачебная помощь</strong> — выполняется лицами со специальной подготовкой (фельдшер, медсестра). Включает в себя более широкий спектр манипуляций.</li><li><strong>Первая медицинская помощь</strong> — специализированная помощь врачами, бригадой скорой помощи.</li></ul><h4>Порядок действий при обнаружении пострадавшего</h4><ol><li><strong>Оценка безопасности</strong> — убедиться в отсутствии угрозы для себя и пострадавшего.</li><li><strong>Вызов скорой помощи</strong> — сообщить точный адрес, характер происшествия, количество пострадавших.</li><li><strong>Оценка состояния</strong> — проверить сознание, дыхание, пульс.</li><li><strong>Остановка кровотечения</strong> — первое по времени критическое действие.</li><li><strong>Обезболивание</strong> (при наличии препаратов).</li><li><strong>Обработка раны и наложение повязки.</strong></li><li><strong>Иммобилизация</strong> (при переломах).</li><li><strong>Транспортировка</strong> (только при необходимости, если скорая не может прибыть быстро).</li></ol><h4>Классификация кровотечений и методы остановки</h4><ul><li><strong>Капиллярное</strong> — кровь сочится каплями. Действия: антисептическая повязка.</li><li><strong>Венозное</strong> — тёмно-вишнёвая кровь, вытекает непрерывной струёй. Действия: давящая повязка (марля + вата + тугое бинтование).</li><li><strong>Артериальное</strong> — алая кровь, пульсирующая струя. Действия: пальцевое пережатие артерии → наложение жгута выше места ранения с фиксацией времени наложения.</li></ul><div class="warning"><strong>Правила наложения жгута:</strong> накладывается только при артериальном кровотечении · выше ранения, максимально близко к нему · первые два тура — максимально тугие · обязательное указание времени наложения · держать не более 1,5–2 часов в тёплое время и 1 час в холодное.</div><h4>Порядок действий при различных ранениях</h4><ul><li><strong>Пулевое/огнестрельное ранение:</strong> вызов скорой, при отсутствии сознания — запрокинуть голову и повернуть на бок, открыть аптечку, оценить кровотечение, уточнить противопоказания на обезболивающие, ввести обезболивающее (крест-накрест: ранение на правой ноге — укол в левую руку и наоборот), обработать края раны антисептиком, наложить давящую повязку, при необходимости разорвать одежду в зоне ранения.</li><li><strong>Закрытый перелом:</strong> уложить пострадавшего на пол, вызвать скорую, наложить медицинскую шину, зафиксировать шину бинтами.</li><li><strong>Открытый перелом:</strong> уложить пострадавшего на пол, вызвать скорую, разрезать одежду в области перелома, наложить шину, зафиксировать шину бинтами.</li></ul><h4>Основные принципы ПДП</h4><div class="highlight"><strong>Не навреди</strong> — действия должны улучшать состояние, а не ухудшать.<br><strong>Приоритеты:</strong> кровотечение > дыхание > переломы.<br><strong>Иммобилизация</strong> (обездвиживание) обязательна при любых подозрениях на перелом позвоночника или крупных костей.<br><strong>Обезболивание</strong> — вводится только если пострадавший в сознании и нет аллергии.<br><strong>Транспортировка</strong> — только в крайнем случае, с учётом характера травм.</div><h4>Дополнительные нюансы для оперативных подразделений</h4><ul><li>Аптечка всегда находится в доступном месте (разгрузка, авто).</li><li>Иметь при себе: жгут, бинты, марлю, шины, антисептик, обезболивающее (при наличии допуска).</li><li>При массовом поражении — сортировка по тяжести состояния.</li><li>При химическом или радиационном поражении — использование индивидуальных средств защиты (противогаз, ОЗК).</li></ul></div>
+                <div class="tabs__content" id="tab6">
+                    <h3>Оформление ДТП</h3>
+                    <p class="section__subtitle" style="margin-bottom: 16px;">Полный порядок действий при оформлении дорожно-транспортного происшествия</p>
 
-Вопросы по типу: Какое примерное время.
+                    <h4>Часть 1. Прибытие и первичные действия</h4>
+                    <div class="highlight">
+                        <p>При прибытии на место ДТП сотрудник обязан:</p>
+                        <ul>
+                            <li>вызвать скорую помощь (при наличии пострадавших);</li>
+                            <li>оказать первую доврачебную помощь;</li>
+                            <li>представиться участникам (звание, должность, фамилия);</li>
+                            <li>выставить знак аварийной остановки / ограждения;</li>
+                            <li>зафиксировать время прибытия.</li>
+                        </ul>
+                    </div>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me открыл багажник авто, достал служебную сумку
+/me из сумки достал бланки оформления ДТП, начал записывать своё звание, должность</code></pre></div>
 
-/me записал время, дату ДТП
+                    <h4>Часть 2. Сбор первичных данных</h4>
+                    <div class="highlight">
+                        <p>Сотрудник обязан уточнить у участников:</p>
+                        <ul>
+                            <li>точное или примерное время ДТП;</li>
+                            <li>кто находился за рулём каждого ТС.</li>
+                        </ul>
+                    </div>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me записал дату и время ДТП
 /me записал марку, цвет, номера первого авто
-/me записал марку, цвет, номера второго авто
+/me записал марку, цвет, номера второго авто</code></pre></div>
 
-"Предоставьте ваши документы на основании Главы 3 Статьи 6 Части 1 Пункта 2 (Только ВУ)"
+                    <h4>Часть 3. Проверка документов</h4>
+                    <div class="highlight">
+                        <p>Запрос документов производится строго на основании ФЗоП(Или же другого НПА, который потребуется, я демонстрирую ФЗоП):</p>
+                        <p style="background: var(--bg-secondary); padding: 8px 12px; border-radius: 6px; font-family: monospace; margin-top: 8px;">«Предоставьте ваши документы на основании Главы 3 Статьи 6 Части 1 Пункта 2 (Только водительское удостоверение)»</p>
+                    </div>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me взял первое ВУ, переписал данные в документ оформления ДТП
+/me взял второе ВУ, переписал данные в документ оформления ДТП
+/me вернул ВУ владельцам
+/me убрал документ оформления ДТП в подсумку</code></pre></div>
 
-/me взял первое ВУ в руку, переписал данные в документ оформления ДТП
-/me взял первое ВУ в руку, переписал данные в документ оформления ДТП
+                    <h4>Часть 4. Составление схемы ДТП</h4>
+                    <div class="highlight">
+                        <p>Схема является ключевым доказательством. На ней указываются:</p>
+                        <ul>
+                            <li>дорога, разметка, знаки, светофоры;</li>
+                            <li>направление движения ТС (стрелками);</li>
+                            <li>место столкновения;</li>
+                            <li>расположение ТС после удара.</li>
+                        </ul>
+                    </div>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me взял чистый лист, начал зарисовывать схему ДТП
+/me поставил подпись, дату, приложил к документу оформления ДТП</code></pre></div>
 
-Вернуть ВУ
-Положить в подсумку (Или куда-то) документ оформления ДТП.</code></pre></div>
-                <h2 class="section__heading">Вторая часть</h2><p class="section__subtitle" style="margin-bottom: 16px;">Начать зарисовывать схему ДТП</p>
-                <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me взял чистый лист, начал зарисовывать схему ДТП
-/me поставил подпис, дату, положил к документу оформления ДТП
-
-/me взял 3 протокол и ручку, начал заполнять
+                    <h4>Часть 5. Осмотр транспортных средств</h4>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me взял бланк протокола осмотра и ручку, начал заполнять
 
 Подошел к первой машине:
-/me переписал цвет, марку, номер авто, затем переписал из первого протокола информацию о водителе
-/me записал показатели спидометра, положения рычага переключения передач
+/me переписал цвет, марку, номер авто
+/me переписал информацию о водителе
+/me записал показатели спидометра
+/me записал положение РПП
 /me записал повреждения первого ТС
 
 Подошел ко второй машине:
-/me переписал цвет, марку, номер авто, затем переписал из первого протокола информацию о водителе
-/me записал показатели спидометра, положения рычага переключения передач
+/me переписал цвет, марку, номер авто
+/me переписал информацию о водителе
+/me записал показатели спидометра
+/me записал положение РПП
 /me записал повреждения второго ТС
+
 /me поставил подпись, дату в документе</code></pre></div>
-                <h2 class="section__heading">Третья часть</h2>
-                <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me достал четвёртый документ, начал заполнять протокол контроля трезвости в отношению первого водителя
-/me закончил вводить нужную информацию, поставил подпись, дату
 
-Подходим к первому водителю:
-"Если согласны пройти сведетельство о стадии алкогольного опьянения ставьте подпись"
+                    <h4>Часть 6. Освидетельствование на состояние опьянения</h4>
+                    <div class="highlight"><p>Проводится при наличии признаков опьянения либо по требованию водителя.</p></div>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me достал протокол контроля трезвости, начал заполнять в отношении первого водителя
+/me закончил заполнение, поставил подпись, дату
 
-После отказа/Подписи:
-/me забрал протокол у водителя, положил его к документам
-/me из разгрузки достал алкотестер с медной трубкой, указал на трубку человеку
-/me включил устройство, откалибровал его, приставил к губам человека напротив
+"Если согласны пройти освидетельствование на состояние алкогольного опьянения — ставьте подпись"
+
+/me забрал протокол у водителя, положил к документам
+/me из разгрузки достал алкотестер с мундштуком, указал на трубку
+/me включил устройство, откалибровал, приставил к губам
 "Дуйте"
 
 /do Алкотестер показал менее 0.16 промилле?
 
-===Это к двум людям так подойти===
-
-/me отсоеденил устройство от губ человека, зафиксировал показания
+/me отсоединил устройство, зафиксировал показания
 /me записал данные в протокол, поставил подпись, дату</code></pre></div>
-                <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>Вопрос к двум лицам:
-"Фиксация имееться у кого-то из вас?"
 
-Если ответ да:
+                    <h4>Часть 7. Фиксация и объяснения</h4>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>Вопрос к участникам:
+"Фиксация (видео с регистраторов, камеры) имеется у кого-то из вас?"
+
+При наличии фиксации:
 "Смотришь, оформляешь по ПДД и т.д"
 
-Если ответ нет:
-/me из сумки достаю два листка и две ручки, передаю водителям
+При отсутствии фиксации:
+/me из сумки достал два листка и две ручки, передал водителям
 
-"Это пояснительные записки, вы (Первый водитель) запишите со своих глаз, а вы (второй водитель) запишите со своих глаз как видели ДТП"
+"Это пояснительные записки. Вы (первый) запишите со своих глаз, как видели ДТП. Вы (второй) — со своих"
 
-/me взял заполненые записки, начал ознакамливатся
-/do Что написано в записке?
-Слушаешь самую крайнюю версию
+/me взял заполненные записки, начал ознакамливаться
+/do Что написано в записке?</code></pre></div>
 
-Если 2 версии сходятся то указуешь виновника ДТП (Типо если водитель признался что он виноват)
-Выписуешь штрафы
-/me достал документ оформления ДТП, запишу виновника ДТП
-
-Если никто не признался в нарушении:
-"ДТП квалифицируется как спорное. Виновное лицо не установлено из-за отсутствия фиксации и противоречивых пояснений. Материалы будут оформлены без вынесения постановления."
-
-/me открыл документ оформления ДТП и сделал отметку "ДТП спорное, виновное лицо не установлено"
+                    <h4>Часть 8. Определение виновника</h4>
+                    <div class="highlight" style="border-left-color: #10b981;">
+                        <p><strong>Ситуация А: Версии совпадают, вина признана</strong></p>
+                    </div>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me достал документ оформления ДТП, записал виновника
+/me выписал штрафы согласно нарушению</code></pre></div>
+                    <div class="highlight" style="border-left-color: #ef4444; margin-top: 16px;">
+                        <p><strong>Ситуация Б: Версии противоречивы (спорное ДТП)</strong></p>
+                        <p style="margin-top: 8px; background: var(--bg-secondary); padding: 8px 12px; border-radius: 6px; font-family: monospace;">«ДТП квалифицируется как спорное. Виновное лицо не установлено из-за отсутствия фиксации и противоречивых пояснений. Материалы будут оформлены без вынесения постановления»</p>
+                    </div>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me открыл документ оформления ДТП, сделал отметку «ДТП спорное, виновное лицо не установлено»
 /me поставил подпись и дату</code></pre></div>
-                <h2 class="section__heading">Четвертая часть</h2><p class="section__subtitle" style="margin-bottom: 16px;">Уведомить водителей об их дальнейших действиях</p>
-                <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>"Так как ДТП спорное, вы можете разрешить его через страховую компанию или через суд. ГИБДД не выносит постановление и не назначает штраф."
 
-/me передал материалы водителям и сообщил порядок дальнейших действий</code></pre></div>
-                <h2 class="section__heading">Финальная часть</h2>
-                <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me закрыл бланк оформления ДТП и убрал документы в сумку
+                    <h4>Часть 9. Информирование участников</h4>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>"Так как ДТП спорное, вы можете разрешить его через страховую компанию или через суд. ГИБДД не выносит постановление и не назначает штраф."
+
+/me передал материалы водителям, сообщил порядок дальнейших действий</code></pre></div>
+
+                    <h4>Часть 10. Завершение оформления</h4>
+                    <div class="code-block"><div class="code-block__header"><button class="code-block__copy" onclick="copyCode(this)">📋 Копировать</button></div><pre class="code-block__content"><code>/me закрыл бланк оформления ДТП, убрал документы в сумку
 
 Сбор документов в одну папку:
-/me взял пустую папку, подписал как "Авария (Дата, Время)"
-/me собрал все материалы ДТП и приложил их к делу
+/me взял пустую папку, подписал как «Авария (Дата, Время)»
+/me собрал все материалы ДТП и приложил к делу
 
-"Вызовите механика для починки ТС".</code></pre></div></div>
+"Вызовите механика для починки ТС"</code></pre></div>
+                </div>
+                </div></div>
             </section>
             <section class="section" id="zaderzhanie">
                 <div class="container"><div class="section__header"><h1 class="section__title">⛓️ Порядок задержания</h1><p class="section__subtitle">Алгоритм действий при задержании</p><div class="section__divider"></div></div>
@@ -612,7 +912,7 @@
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__brand"><span class="footer__logo">🚔 СР ДПС</span><p class="footer__desc">Методическое пособие для сотрудников</p></div>
-            <div class="footer__links"><a href="#razminirovanie">Разминирование</a><a href="#first-aid">Первая помощь</a><a href="#shturm">Штурм</a><a href="#peregovory">Переговоры</a><a href="#theory">Теория</a><a href="#dtp">ДТП</a></div>
+            <div class="footer__links"><a href="#razminirovanie">Разминирование</a><a href="#first-aid">Первая помощь</a><a href="#shturm">Штурм</a><a href="#peregovory">Переговоры</a><a href="#theory">Теория</a><a href="#tab6">ДТП</a></div>
             <div class="footer__copy"><p>© 2026 Amazing Online Roleplay</p><p>Разработано для СР ДПС</p></div>
         </div>
     </footer>
